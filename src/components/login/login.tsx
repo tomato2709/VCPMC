@@ -30,14 +30,15 @@ const Login: React.FC = () => {
                     >
                     <Input style={{ background: '#2B2B3F', border: '1px solid #727288', color: '#fff' }} />
                 </Form.Item>
-                <Form.Item name="remember" valuePropName="checked" wrapperCol={{ span: 10 }}>
+                <Form.Item name="remember" valuePropName="checked" wrapperCol={{ span: 11 }}>
                     <Checkbox style={{ color: '#fff' }}>Ghi nhớ đăng nhập</Checkbox>
                 </Form.Item>
                 <Form.Item>
-                    <Button style={{ border: '1px solid #FF7506', color: '#fff' }} className="btn" htmlType="submit">
-                    Đăng nhập
+                    <Button style={{ border: '1px solid #FF7506', color: '#fff', fontSize: '16px' }} className="btn" htmlType="submit">
+                    <b>Đăng nhập</b>
                     </Button>
                 </Form.Item>
+                <a href="/forgot-password" className="forgot-password">Quên mật khẩu</a>
                 </Form>
             </div>
         </div>
