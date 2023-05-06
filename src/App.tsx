@@ -4,8 +4,8 @@ import './App.css';
 import { ConfigProvider } from 'antd';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import KhoBanGhi from './pages/KhoBanGhi';
-import DangNhap from './pages/DangNhap';
-import QuenMatKhau from './pages/QuenMatKhau';
+import DangNhap from './pages/Login/DangNhap';
+import QuenMatKhau from './pages/ForgotPassword/QuenMatKhau';
 
 function App() {
   return (
