@@ -1,38 +1,121 @@
-.menu {
-    position: fixed;
-    width: 170px;
-    height: 100vh;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    background-color: #020220;
+.active {
+    transform: translateX(-135px);
+    transition: transform 0.3s ease;
 }
-
-.menu__logo {
-    position: absolute;
-    width: 96px;
-    height: 96px;
-    left: 37px;
-    top: 39px;
-    background: #FFFFFF;
-    border-radius: 70px;
+.sidebar {
+    width: 150px;
+    height: 100vh;
+    padding-top: 40px;
+    left: 0;
+    bottom: 0;
+    background-color: var(--violetDark);
+    border-radius: 0px 20px 20px 0px;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 100;
+}
+.sidebar .logo {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 65px;
+    height: 65px;
 }
-
-.menu__item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 24px;
-    position: absolute;
-    width: 170px;
-    height: 648px;
-    left: 0px;
-    top: 245px;
-    color: #FFFFFF
+.sidebar .logo .svg {
+    width: 65px;
+    height: 65px;
 }
-
-.menu__item:hover {
+.sidebar .menu {
+    text-align: center;
+    color: var(--white);
+    line-height: 100%;
+}
+.sidebar .menu li {
+    margin: -5px 0;
+    position: relative;
+    cursor: pointer;
+}
+.sidebar .menu li:hover {
     color: orange;
+}
+.sidebar .menu li:hover .navigateChild {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.2, 5s linear;
+}
+.sidebar .menu li .active {
+    color: var(--orange);
+}
+.sidebar .menu li svg {
+    color: var(--white);
+    font-size: 23px;
+    margin: 3px 0;
+}
+.sidebar .menu li svg :hover {
+    color: var(--orange);
+}
+.sidebar .menu li a {
+    height: 100%;
+    text-decoration: none;
+    padding: 3px 0;
+}
+.sidebar .menu li p {
+    margin-top: 10px
+}
+.sidebar .menu li .dot {
+    position: absolute;
+    left: 41.67%;
+    right: 0;
+    top: 12.5%;
+    bottom: 12.5%;
+    color: #fff;
+    text-align: right;
+    margin-right: 10px;
+}
+.sidebar .menu li .navigateChild {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    background-color: #383849;
+    border-radius: 0 8px 8px 0;
+    width: 190px;
+    padding: 8px 20px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 99;
+}
+.sidebar .menu li .navigateChild a {
+    color: var(--white);
+    font-size: 13px;
+    width: 100%;
+    padding: 7px 0;
+}
+.sidebar .menu li .navigateChild a:hover {
+    color: var(--orange);
+}
+.sidebar .btnClickToggleSidebar {
+    width: 17px;
+    height: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -2px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 0 8px 8px 0;
+}
+.sidebar .btnClickToggleSidebar svg {
+    color: var(--orange);
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
