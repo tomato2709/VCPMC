@@ -1,5 +1,5 @@
 .active {
-    transform: translateX(-135px);
+    transform: translateX(-120px);
     transition: transform 0.3s ease;
 }
 .sidebar {
@@ -39,12 +39,15 @@
     cursor: pointer;
 }
 .sidebar .menu li:hover {
+    background-color: var(--violetLight);
     color: orange;
+    opacity: 1;
+    transition: 0.2s ease;
 }
 .sidebar .menu li:hover .navigateChild {
     visibility: visible;
     opacity: 1;
-    transition: opacity 0.2, 5s linear;
+    transition: 0.2s ease;
 }
 .sidebar .menu li .active {
     color: var(--orange);
@@ -81,7 +84,7 @@
     flex-direction: column;
     background-color: #383849;
     border-radius: 0 8px 8px 0;
-    width: 190px;
+    width: 200px;
     padding: 8px 20px;
     position: absolute;
     top: 0;

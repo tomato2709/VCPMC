@@ -1,0 +1,39 @@
+.feature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    margin: 5px 0;
+    gap: 10px;
+    width: 95px;
+    border-radius: 16px 0px 0px 16px;
+    background: #2f2f41;
+    position: fixed;
+    right: 0;
+    top: 100px;
+    cursor: pointer;
+    text-align: center;
+}
+.feature > div {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.feature > div p {
+    font-size: 11px;
+}
+.feature > div .icon {
+    border-radius: 50%;
+    background-color: #727288;
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.feature > div svg :hover {
+    color: #ff4747;
+}

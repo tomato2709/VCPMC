@@ -1,0 +1,16 @@
+.breadcrumb.breadcrumb.breadcrumb .ant-breadcrumb-link {
+    color: var(--white);
+    font-size: 16px;
+}
+.breadcrumb.breadcrumb.breadcrumb .ant-breadcrumb-separator {
+    color: var(--orange);
+    margin-top: 3px;
+}
+.breadcrumb a {
+    color: var(--white);
+    font-size: 16px;
+}
+.breadcrumb a :hover {
+    color: var(--white);
+    text-decoration: underline;
+}

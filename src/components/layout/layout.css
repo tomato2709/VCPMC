@@ -1,0 +1,26 @@
+.home {
+    display: flex;
+    position: relative;
+    background-color: var(--violet);
+    color: #fff;
+    width: 100%;
+}
+
+.homeContentMain {
+    padding: 0 2.5%;
+    width: 100%;
+    position: relative;
+}
+
+.homeHeader {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    color: #fff;
+}
+
+.homeHeader .avatar a {
+    display: flex;
+    align-items: center;
+}

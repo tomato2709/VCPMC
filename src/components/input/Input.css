@@ -1,0 +1,13 @@
+.input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 11px 24px 13px 16px;
+    height: 40px;
+    border: none;
+    margin-top: 6px;
+}
+.input.input.input :where(.css-dev-only-do-not-override-1n7nwfa).ant-input-disabled, .input.input.input ant-input[disabled] {
+    color: var(--white);
+    background: #33334d;
+}
