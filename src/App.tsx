@@ -7,6 +7,8 @@ import KhoBanGhi from './pages/KhoBanGhi';
 import DangNhap from './pages/Login/DangNhap';
 import QuenMatKhau from './pages/ForgotPassword/QuenMatKhau';
 import Dashboard from './pages/Dashboard/Dashboard';
+import Layout from './components/layout/layout';
+import Download from './pages/Support/Download';
 
 function App() {
   return (
@@ -15,7 +17,10 @@ function App() {
         <Routes>
           <Route path="/" element={<DangNhap />} />
           <Route path="/forgot-password" element={<QuenMatKhau />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/homepage" element={<Layout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="download" element={<Download />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </ConfigProvider>

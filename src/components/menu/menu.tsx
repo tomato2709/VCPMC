@@ -85,7 +85,7 @@ const Menu: React.FC = () => {
                 </div>
                 <div className="navigateChild">
                   <Link to="">Hướng dẫn sử dụng</Link>
-                  <Link to="">Tải app</Link>
+                  <Link to="./download">Tải app</Link>
                   <Link to="">Feedback</Link> 
                 </div>
               </li>
