@@ -1,5 +1,6 @@
 import React from 'react'
 import { Modal } from 'antd'
+import './Modal.css'
 
 interface IModal {
     title: string

@@ -4,7 +4,7 @@ import Avatar from 'antd/es/avatar';
 import Input from "../../components/input/Input";
 import Feature from "../../components/feature/Feature";
 import CustomModal from "../../components/modal/Modal";
-import { Button, message } from "antd";
+import { Button, message, Modal } from "antd";
 import { useNavigate } from "react-router-dom";
 import { SlNote } from 'react-icons/sl'
 import { RxLockClosed } from 'react-icons/rx'
@@ -152,7 +152,27 @@ const Dashboard: React.FC = () => {
                 <Button type='default' ghost style={{ border: '1px solid #FF7506', color: '#FF7506', fontSize: '16px', width: '150px', height: '40px' }} onClick={() => setUpdateUser(false)}><b>Hủy</b></Button>
                 <Button type='primary' style={{ border: '1px solid #FF7506', background: '#FF7506', color: '#fff', fontSize: '16px', width: '150px', height: '40px' }}><b>Lưu</b></Button>
             </div>}
-            
+            <Modal className="customModal"
+            title="Thay đổi mật khẩu"
+            open={openModal}
+            onOk={handleClickOnOkModal}
+            onCancel={() => setOpenModal(false)}
+        >
+            <form action="">
+                <div>
+                    <p>Mật khẩu hiện tại: </p>
+                    <Input width={471} type="password" value={'password'} name="password" />
+                </div>
+                <div>
+                    <p>Mật khẩu mới:</p>
+                    <Input width={471} require type="password" name="newPassword"/>
+                </div>
+                <div>
+                    <p>Nhập lại mật khẩu mới:</p>
+                    <Input width={471} require type="password" name="confirmPassword"/>
+                </div>
+            </form>
+        </Modal>
             <Feature featureProps={featureProps} />
         </div>
       )
