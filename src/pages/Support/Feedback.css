@@ -1,0 +1,79 @@
+.feedback .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.feedback .content .form {
+    margin-bottom: 20px;
+    width: 500px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--violetLight);
+    border-radius: 8px;
+    padding: 12px;
+}
+.feedback .content .form div {
+    margin: 10px 0;
+}
+.feedback .content-admin {
+    display: flex;
+}
+.feedback .content-admin > div {
+    border-radius: 8px;
+    background-color: var(--violetLight);
+    height: 75vh;
+}
+.feedback .content-admin .message-feedback {
+    width: 33%;
+    margin-right: 15px;
+    overflow: auto;
+}
+.feedback .content-admin .message-feedback .message {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 7px 10px;
+    cursor: pointer;
+    position: relative;
+}
+.feedback .content-admin .message-feedback .message img {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+}
+.feedback .content-admin .message-feedback .message .date {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 11px;
+}
+.feedback .content-admin .message-feedback :hover {
+    background-color: rgba(64, 64, 83, 0.7);
+    transition: all 0.2s linear;
+}
+.feedback .content-admin .content-message-feedback {
+    width: 60%;
+}
+.feedback .content-admin .content-message-feedback .detail-feedback {
+    padding: 15px;
+}
+.feedback .content-admin .content-message-feedback .detail-feedback > div:first-child {
+    display: flex;
+    position: relative;
+}
+.feedback .content-admin .content-message-feedback .detail-feedback > div:first-child img {
+    margin: 0 15px 15px 0;
+}
+.feedback .content-admin .content-message-feedback .detail-feedback > div:first-child .date {
+    position: absolute;
+    right: 15px;
+}
+.feedback .content-admin .content-message-feedback .no-message {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

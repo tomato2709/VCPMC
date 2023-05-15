@@ -9,6 +9,11 @@ import QuenMatKhau from './pages/ForgotPassword/QuenMatKhau';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Layout from './components/layout/layout';
 import Download from './pages/Support/Download';
+import SuccessFpw from './pages/ForgotPassword/Success';
+import ErrorFpw from './pages/ForgotPassword/Error';
+import NewPassword from './pages/ForgotPassword/NewPassword';
+import Feedback from './pages/Support/Feedback';
+import Manual from './pages/Support/Manual';
 
 function App() {
   return (
@@ -17,9 +22,17 @@ function App() {
         <Routes>
           <Route path="/" element={<DangNhap />} />
           <Route path="/forgot-password" element={<QuenMatKhau />} />
+          <Route path="/forgot-password">
+            <Route index element={<QuenMatKhau />} />
+            <Route path="success" element={<SuccessFpw />} />
+            <Route path="error" element={<ErrorFpw />} />
+            <Route path="new-password" element={<NewPassword />} />
+          </Route>
           <Route path="/homepage" element={<Layout />}>
             <Route index element={<Dashboard />} />
             <Route path="download" element={<Download />} />
+            <Route path="feedback" element={<Feedback />} />
+            <Route path="manual" element={<Manual />} />
           </Route>
         </Routes>
       </BrowserRouter>

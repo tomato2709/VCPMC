@@ -84,9 +84,9 @@ const Menu: React.FC = () => {
                 <BiDotsVerticalRounded />
                 </div>
                 <div className="navigateChild">
-                  <Link to="">Hướng dẫn sử dụng</Link>
+                  <Link to="./manual">Hướng dẫn sử dụng</Link>
                   <Link to="./download">Tải app</Link>
-                  <Link to="">Feedback</Link> 
+                  <Link to="./feedback">Feedback</Link> 
                 </div>
               </li>
             </ul>

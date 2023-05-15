@@ -33,3 +33,29 @@
     justify-content: center;
     margin-top: 20px;
 }
+
+.customModal.customModal.customModal .ant-modal-content {
+    background-color: #3e3e5b;
+    height: 50vh;
+}
+.customModal.customModal.customModal .ant-modal-title {
+    text-align: center;
+    color: var(--white);
+    background-color: #3e3e5b;
+    font-size: 23px;
+}
+.customModal.customModal.customModal .ant-modal-footer {
+    display: flex;
+    justify-content: center;
+}
+.customModal.customModal.customModal .ant-btn {
+    width: 100px;
+    border: 1.5px solid var(--orange);
+    color: var(--orange);
+    background-color: #3e3e5b;
+}
+.customModal.customModal.customModal .ant-btn-primary {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
