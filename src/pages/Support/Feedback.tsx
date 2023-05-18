@@ -121,7 +121,7 @@ const Feedback: React.FC = () => {
                         <div>
                             <h5>Nội dung</h5>
                             <textarea 
-                                cols={58} rows={10} 
+                                cols={58} rows={6} 
                                 placeholder='Nhập nội dung'
                                 name='content'
                                 defaultValue={addFeedback.content && addFeedback.content}

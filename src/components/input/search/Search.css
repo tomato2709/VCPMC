@@ -1,0 +1,19 @@
+.search {
+    margin: 7px 0 12px 0;
+}
+.search.search.search .ant-input {
+    background-color: #33334d;
+    border: none;
+    color: #fff;
+    padding: 5px;
+}
+.search.search.search .ant-input::placeholder {
+    color: var(--white);
+}
+.search.search.search .ant-btn, .search.search.search .ant-btn-default {
+    background-color: #33334d;
+    border: none;
+}
+.search.search.search .ant-btn .anticon, .search.search.search .ant-btn-default .anticon {
+    color: #fff;
+}

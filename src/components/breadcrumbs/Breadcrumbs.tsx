@@ -15,22 +15,6 @@ interface IBreadcrumb {
 }
 
 function Breadcrumbs({crumbs}: IBreadcrumb) {
-
-  // const location = useLocation();
-
-  // // path = home/dashboard => home | dashboard
-  // let currentPath: string = ''
-  // const crumbs = location.pathname.split('/')
-  //   .filter(crumb => crumb !== '')
-  //   .map(crumb => {
-  //     currentPath += `/${crumb}`
-
-  //     return <Breadcrumb.Item key={crumb} >
-  //       <Link to={currentPath}>{crumb}</Link>
-  //     </Breadcrumb.Item>
-      
-  //   })
-
     return(
        <nav> 
           <Breadcrumb className="breadcrumb" separator={<IoIosArrowForward />}>

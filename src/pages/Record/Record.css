@@ -1,0 +1,165 @@
+.record .options {
+    display: flex;
+}
+.record .options > div {
+    display: flex;
+    margin: 10px 15px;
+}
+.record .options > div p {
+    line-height: 32px;
+}
+.record .options .switch {
+    margin-left: 50px;
+}
+.record .options .switch span {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 7px;
+}
+.record .options .switch span svg {
+    color: var(--white);
+    font-size: 25px;
+}
+.record .options .switch .active svg {
+    color: #ff7506;
+}
+.record .listSongTable {
+    display: flex;
+    flex-wrap: wrap;
+    height: 65vh;
+    overflow: auto;
+    width: 94%;
+}
+.record .listSongTable .notfoundSong {
+    margin-top: 50px;
+}
+.record .card {
+    border-radius: 8px;
+    width: 255px;
+    height: 302px;
+    background-color: var(--violetLight);
+    overflow: hidden;
+    position: relative;
+    margin: 0 15px 20px 0;
+}
+.record .card .img img {
+    height: 130px;
+    width: 100%;
+}
+.record .card .infoSong {
+    padding: 10px;
+    width: 100%;
+}
+.record .card .infoSong .info h4 {
+    margin-bottom: 0;
+}
+.record .card .infoSong .info span {
+    display: flex;
+}
+.record .card .infoSong .info span h5 {
+    margin-right: 7px;
+}
+.record .card .infoSong .info span p {
+    display: flex;
+    align-items: center;
+}
+.record .card .infoSong .type {
+    display: flex;
+    margin-top: 13px;
+}
+.record .card .infoSong .type > div {
+    margin-right: 6px;
+    width: 65px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #999898;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.record .card .infoSong .type > div p {
+    font-size: 11px;
+    text-align: center;
+}
+.record .card .infoSong .type > div h5 {
+    text-align: center;
+}
+.record .card .edit {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.UpdateInformation .container {
+    display: flex;
+    margin: 12px 0;
+    justify-content: center;
+    width: 100%;
+}
+.UpdateInformation .container .info h4 {
+    color: var(--orange);
+}
+.UpdateInformation .container .info > div:first-child {
+    width: 400px;
+    height: 286px;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--violetLight);
+    margin: 0 7px 14px 0;
+}
+.UpdateInformation .container .info > div:first-child div {
+    display: flex;
+    justify-content: space-between;
+    width: 93%;
+    margin: 2px 0;
+}
+.UpdateInformation .container .info > div:first-child div p {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+.UpdateInformation .container .info > div:last-child {
+    background-color: var(--violetLight);
+    border-radius: 8px;
+    padding: 12px;
+    width: 400px;
+    height: 180px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 7px 7px 0 0;
+}
+.UpdateInformation .container .info > div:last-child > div {
+    display: flex;
+    justify-content: space-between;
+    width: 93%;
+    margin: 2px 0;
+}
+.UpdateInformation .container .info > div:last-child > div p {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+.UpdateInformation .container .updateInfo {
+    width: 453px;
+    height: 474px;
+    border-radius: 8px;
+    padding: 12px;
+    margin-left: 7px;
+    background-color: var(--violetLight);
+}
+.UpdateInformation .container .updateInfo h4 {
+    color: var(--orange);
+}
+.UpdateInformation .button {
+    display: flex;
+    justify-content: center;
+}
+.UpdateInformation .button button {
+    margin-right: 15px;
+}

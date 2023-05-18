@@ -1,0 +1,36 @@
+.configuration .content {
+    width: 100%;
+}
+.configuration .content > div:first-child {
+    display: flex;
+    width: 100%;
+}
+.configuration .content .main-theme {
+    margin-right: 30px;
+}
+.configuration .content .main-theme img {
+    width: 350px;
+    height: 200px;
+    border-radius: 8px;
+}
+.configuration .content .select-theme {
+    display: flex;
+    margin-left: 40px;
+    cursor: pointer;
+}
+.configuration .content .select-theme img {
+    margin: 10px;
+    width: 200px;
+    height: 120px;
+}
+.configuration .content .select-language {
+    display: flex;
+    margin-top: 40px;
+}
+.configuration .content .select-language h5 {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}

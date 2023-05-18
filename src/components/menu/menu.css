@@ -66,7 +66,7 @@
     padding: 3px 0;
 }
 .sidebar .menu li p {
-    margin-top: 10px
+    margin-top: 3px
 }
 .sidebar .menu li .dot {
     position: absolute;
@@ -92,6 +92,7 @@
     visibility: hidden;
     opacity: 0;
     z-index: 99;
+    transition: 0.2s ease;
 }
 .sidebar .menu li .navigateChild a {
     color: var(--white);
@@ -101,6 +102,7 @@
 }
 .sidebar .menu li .navigateChild a:hover {
     color: var(--orange);
+    transition: 0.2s ease;
 }
 .sidebar .btnClickToggleSidebar {
     width: 17px;
