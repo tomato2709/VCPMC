@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import { ConfigProvider } from 'antd';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import KhoBanGhi from './pages/KhoBanGhi';
 import DangNhap from './pages/Login/DangNhap';
 import QuenMatKhau from './pages/ForgotPassword/QuenMatKhau';
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -12,8 +11,12 @@ import Download from './pages/Support/Download';
 import SuccessFpw from './pages/ForgotPassword/Success';
 import ErrorFpw from './pages/ForgotPassword/Error';
 import NewPassword from './pages/ForgotPassword/NewPassword';
+import Record from './pages/Record/Record';
 import Feedback from './pages/Support/Feedback';
 import Manual from './pages/Support/Manual';
+import Configuration from './pages/Settings/Configuration/Configuration';
+import Cycle from './pages/Settings/Cycle/Cycle';
+import ManagerContract from './pages/Settings/Contract/Contract';
 
 function App() {
   return (
@@ -30,9 +33,13 @@ function App() {
           </Route>
           <Route path="/homepage" element={<Layout />}>
             <Route index element={<Dashboard />} />
+            <Route path="record" element={<Record />} />
             <Route path="download" element={<Download />} />
             <Route path="feedback" element={<Feedback />} />
             <Route path="manual" element={<Manual />} />
+            <Route path="configuration" element={<Configuration />} />
+            <Route path="cycle" element={<Cycle />} />
+            <Route path="manager-contract" element={<ManagerContract />} />
           </Route>
         </Routes>
       </BrowserRouter>

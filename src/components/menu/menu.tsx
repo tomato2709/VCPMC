@@ -11,6 +11,13 @@ import { MdContactSupport } from "react-icons/md";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { Link, NavLink } from 'react-router-dom';
+import { RecordIcon } from '../../assets/svg/RecordIcon';
+import { PlaylistIcon } from '../../assets/svg/PlaylistIcon';
+import { CreateCalendarIcon } from '../../assets/svg/CreateCalendarIcon';
+import { ManageIcon } from '../../assets/svg/ManageIcon';
+import { RevenueIcon } from '../../assets/svg/RevenueIcon';
+import { SettingIcon } from '../../assets/svg/SettingIcon';
+import { SupportIcon } from '../../assets/svg/SupportIcon';
 
 const Menu: React.FC = () => {
     const [ toggleMenu, setToggleMenu ] = useState(false)
@@ -19,24 +26,24 @@ const Menu: React.FC = () => {
         setToggleMenu(!toggleMenu)
     }
     return (
-        <div className={toggleMenu ? "sidebar active" : "sidebar"}>
+        <div className={toggleMenu ? `sidebar active` : `sidebar`}>
           <div className="logo">
             <img className='svg' src={logo} />
           </div>
           <div className="menu">
             <ul>
               <li>
-                <NavLink to=""><FaWindowRestore /><p>Kho bản ghi</p></NavLink>
+                <NavLink to=""><RecordIcon /><p>Kho bản ghi</p></NavLink>
               </li>
               <li>
-                <NavLink to=''><MdPlaylistPlay /><p>Playlist</p></NavLink>
+                <NavLink to=''><PlaylistIcon /><p>Playlist</p></NavLink>
               </li>
               <li>
-                <NavLink to=''><FaRegCalendarAlt /><p>Lập lịch phát</p></NavLink>
+                <NavLink to=''><CreateCalendarIcon /><p>Lập lịch phát</p></NavLink>
               </li>
               <li>
                 <div>
-                  <NavLink to=""><SiGoogletagmanager /><p>Quản lý</p></NavLink>
+                  <NavLink to=""><ManageIcon /><p>Quản lý</p></NavLink>
                 </div>
                 <div className="dot">
                 <BiDotsVerticalRounded />
@@ -50,7 +57,7 @@ const Menu: React.FC = () => {
               </li>
               <li>
                 <div>
-                <TbReportMoney /><p>Doanh thu</p>
+                <RevenueIcon /><p>Doanh thu</p>
                 </div>
                 <div className="dot">
                 <BiDotsVerticalRounded />
@@ -63,22 +70,22 @@ const Menu: React.FC = () => {
               </li>
               <li>
                 <div>
-                <SlSettings /><p>Cài đặt</p>
+                <SettingIcon /><p>Cài đặt</p>
                 </div>
                 <div className="dot">
                 <BiDotsVerticalRounded />
                 </div>
                 <div className="navigateChild">
                   <Link to="">Phân quyền người dùng</Link>
-                  <Link to="">Cấu hình</Link>
-                  <Link to="">Quản lí hợp đồng</Link>
+                  <Link to="./configuration">Cấu hình</Link>
+                  <Link to="./manager-contract">Quản lí hợp đồng</Link>
                   <Link to="">Thông tin tác phẩm</Link>
-                  <Link to="">Chu kì đối soát</Link>
+                  <Link to="./cycle">Chu kì đối soát</Link>
                 </div>
               </li>
               <li>
                 <div>
-                <MdContactSupport /><p>Hỗ trợ</p>
+                <SupportIcon /><p>Hỗ trợ</p>
                 </div>
                 <div className="dot">
                 <BiDotsVerticalRounded />

@@ -1,0 +1,76 @@
+.customTable.customTable.customTable :where(.css-dev-only-do-not-override-1n7nwfa).ant-table-wrapper {
+    width: 100%;
+}
+.customTable.customTable.customTable .ant-table {
+    background-color: #2f2f41;
+    border-radius: 8px;
+}
+.customTable.customTable.customTable .ant-table-content {
+    padding: 10px;
+}
+.customTable.customTable.customTable .ant-table-thead {
+    border: none;
+}
+.customTable.customTable.customTable .ant-table-cell {
+    background-color: #2f2f41;
+    color: var(--orange);
+    border: none;
+    padding: 8px;
+    font-family: "Montserrat Thin";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 17px;
+    color: var(--orange);
+    vertical-align: middle;
+}
+.customTable.customTable.customTable :where(.css-dev-only-do-not-override-1n7nwfa).ant-table-wrapper .ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before, .customTable.customTable.customTable :where(.css-dev-only-do-not-override-1n7nwfa).ant-table-wrapper .ant-table-thead > tr > td:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+    width: 0;
+}
+.customTable.customTable.customTable .ant-table-tbody tr td {
+    border: none;
+}
+.customTable.customTable.customTable .ant-table-tbody .ant-table-row {
+    border-bottom: 1px solid #616060;
+}
+.customTable.customTable.customTable .ant-table-tbody .ant-table-cell {
+    font-family: "Montserrat Thin";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+    color: #d1d1d1;
+    vertical-align: middle;
+    max-width: 460px;
+    border-bottom: 1px solid #616060;
+}
+.customTable.customTable.customTable .ant-table-tbody .ant-table-cell-row-hover {
+    background-color: rgba(66, 66, 83, 0.7);
+}
+.customTable.customTable.customTable .ant-pagination-prev svg, .customTable.customTable.customTable .ant-pagination-next svg {
+    color: var(--orange);
+}
+.customTable.customTable.customTable .ant-pagination-item a {
+    color: var(--white);
+}
+.customTable.customTable.customTable .ant-pagination-item-active {
+    background-color: var(--orangeLight);
+    border: none;
+    border-radius: 50%;
+}
+.customTable.customTable.customTable .ant-table-tbody > tr:last-child > td {
+    border: none;
+}
+.customTable.customTable.customTable a {
+    color: var(--orange);
+    text-decoration: underline;
+}
+.customTable.customTable.customTable p {
+    font-size: 12px;
+}
+
+.tableContainer {
+    background-color: #2F2F41;
+    border-radius: 8px;
+    position: relative;
+}
