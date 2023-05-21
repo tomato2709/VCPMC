@@ -5,7 +5,7 @@ import { collection, doc, setDoc } from 'firebase/firestore'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import Input from '../../components/input/Input'
 import CustomSelect from '../../components/select/Select'
-import { db } from '../../firebase/firebase'
+import { db } from '../../config/firebase'
 
 interface IFeedback {
     id?: number,

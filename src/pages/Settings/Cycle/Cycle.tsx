@@ -4,7 +4,6 @@ import './Cycle.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 
 const Cycle: React.FC = () => {
-    
     const breadcrumb = [
         {
           key: 1,
@@ -17,6 +16,7 @@ const Cycle: React.FC = () => {
           namePage: 'Cài đặt hệ thống'
         }
       ]
+
   return (
     <div className="cycle">
         <Breadcrumbs crumbs={breadcrumb} />
@@ -24,7 +24,7 @@ const Cycle: React.FC = () => {
         <div className="container">
             <div className="contentPage">
                 <h4>Cài đặt chu kì đối soát</h4>
-                <Radio.Group>
+                <Radio.Group defaultValue={"quarter"} >
                     <Radio value={"quarter"}><h5>Đối soát theo quý</h5></Radio> <br />
                     <div className="quarter">
                         <p>Quý 1: 01/06 - 30/07</p> <br />

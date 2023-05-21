@@ -1,68 +1,58 @@
-import React, { useEffect } from 'react'
-import { Outlet, useLocation, useNavigate } from 'react-router';
+import React, { useEffect } from 'react';
+import './layout.css';
+import Ava from '../../assets/avatar_test.png';
 import Menu from '../menu/menu';
 import Avatar from 'antd/es/avatar';
 import Typography from 'antd/es/typography';
 import { Dropdown, MenuProps, message } from 'antd';
-import './layout.css';
+import { Outlet, useLocation, useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
-import Ava from '../../assets/avatar_test.png'
+import { useAppDispatch, useAppSelector } from '../../redux/store';
+import { auth } from '../../config/firebase';
+import { fetchUser } from '../../redux/slice/userSlice';
 
 const Layout: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const { pathname } = useLocation();
-  
-  const handleMenuClick: MenuProps['onClick'] = (e) => {
-    message.info('Click on menu item.');
-    console.log('click', e);
-  };
+  const { user } = useAppSelector(state => state.user)
 
-  const items: MenuProps['items'] = [
-    {
-      label: 'Tiếng Việt',
-      key: '1'
-    },
-    {
-      label: 'Tiếng Anh',
-      key: '2'
-    },
-    {
-      label: 'Tiếng Nhật',
-      key: '3',
-    },
-    {
-      label: 'Tiếng Hàn',
-      key: '4',
-    },
-  ];
-  useEffect(() => {
-    if(pathname === '/')
-      navigate('store')
+  useEffect(()=> {
+    const unSub = auth.onAuthStateChanged((currentUser) => {
+        if(currentUser) {
+          const { uid } = currentUser;
+          dispatch(fetchUser({uid: uid}))
+          return
+        }
+        navigate('login')        
+    })
+    return () => {
+        unSub();
+    }
   }, [])
   
-
-  const menuProps = {
-    items,
-    onClick: handleMenuClick,
-  };
-
+  useEffect(() => {
+    if(pathname === '/')
+      navigate('/')
+  }, [])
   
   return (
     <>
-      <div className="home">
+      {user && <div className="home">
         <Menu />
         <div className="homeContentMain">
           <div className="homeHeader">
             <div className="avatar">
-              <Link to="dashboard">
-                <Avatar src={Ava} style={{ backgroundColor: '#f56a00', marginRight: 5 }}></Avatar>
-                <Typography style={{color: '#C8C8DB'}}>Tuyết Nguyễn</Typography>
+              <Link to="">
+                <Avatar style={{ backgroundColor: '#f56a00', marginRight: 5 }}>{user.avatar ?? user?.lastName.charAt(0).toUpperCase()}</Avatar>
+                <Typography style={{color: '#C8C8DB'}}>{user?.displayName}</Typography>
               </Link>
+              <Typography style={{color: '#C8C8DB'}}>{user?.isAdmin ? "Admin" : "User" }</Typography>
             </div>
           </div>
           <Outlet />
         </div>
-      </div>
+      </div>}
     </>
   )
 }
