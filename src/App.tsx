@@ -23,15 +23,14 @@ function App() {
     <ConfigProvider theme={{token: {fontFamily: 'Montserrat Thin',},}}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<DangNhap />} />
-          <Route path="/forgot-password" element={<QuenMatKhau />} />
+          <Route path="/login" element={<DangNhap />} />
           <Route path="/forgot-password">
             <Route index element={<QuenMatKhau />} />
             <Route path="success" element={<SuccessFpw />} />
             <Route path="error" element={<ErrorFpw />} />
             <Route path="new-password" element={<NewPassword />} />
           </Route>
-          <Route path="/homepage" element={<Layout />}>
+          <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
             <Route path="record" element={<Record />} />
             <Route path="download" element={<Download />} />

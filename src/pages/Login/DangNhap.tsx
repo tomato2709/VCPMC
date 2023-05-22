@@ -1,11 +1,56 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react'
 import './login.css';
-import { Button, Checkbox, Input } from "antd";
 import logo from '../../assets/logo.png';
 import vi_flag from '../../assets/vi_flag.png';
-import { Link } from "react-router-dom";
+import Input from '../../components/input/Input';
+import { Button, Checkbox, message } from "antd";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from '../../redux/store'
+import { fetchUser } from '../../redux/slice/userSlice'
+import { logIn } from '../../config/userAuthentication'
 
 const DangNhap: React.FC = () => {
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+    const { pathname } = useLocation();
+    const user = useAppSelector((state) => state.user.user);
+    const [ login, setLogin ] = useState({email: '', password: ''});
+    const [ error, setError ] = useState(false);
+  
+    useEffect(() => {
+      if(user) {
+        navigate('/')
+      }
+    }, [navigate])
+  
+    const handleLogin = async (e: any) => {
+      e.preventDefault();
+      
+      try {
+        await logIn(login.email, login.password)
+        .then(res => {
+            dispatch(fetchUser({uid: res.user.uid}))
+            message.success("Đăng nhập thành công")
+            navigate('/');
+          })
+      } catch(error: any) {
+        setError(true)
+        message.error("Đăng nhập thất bại")
+      }
+    }
+  
+    const handleChangeValueToLogin = (e: any) => {
+      const name: string = e.name;
+      const value: string = e.value
+  
+      setLogin(prev => {
+        return {
+            ...login,
+            [name]: value
+        }
+    })
+    }
+
     return (
         <div className="login">
             <div className="selectLanguage">
@@ -16,20 +61,21 @@ const DangNhap: React.FC = () => {
             </div>
             <h3>Đăng nhập</h3>
             <div className="login-item">
-                <form>
+                <form action="">
                 <div>
                     <p>Tên đăng nhập: </p>
-                    <Input style={{ background: '#2B2B3F', border: '1px solid #727288', color: '#fff', width: '470px', height: '40px' }} type="text" name="email" />
+                    <Input width={470} height={40} type="text" name="email" setValue={handleChangeValueToLogin} />
                 </div>
                 <div>
                     <p>Password: </p>
-                    <Input style={{ background: '#2B2B3F', border: '1px solid #727288', color: '#fff', width: '470px', height: '40px' }} type="password" name="password" />
+                    <Input width={470} height={40} type="password" name="password" setValue={handleChangeValueToLogin} />
                 </div>
+                {error && <p style={{color: '#FF4747', marginTop: 5}}>Sai tên đăng nhập hoặc mật khẩu.</p>}
                 <div>
                     <Checkbox style={{ color: '#fff' }}>Ghi nhớ đăng nhập</Checkbox>
                 </div>
                 <div className="formBtn">
-                    <Button style={{ border: '1px solid #FF7506', color: '#fff', fontSize: '16px' }} className="btn">
+                    <Button style={{ border: '1px solid #FF7506', color: '#fff', fontSize: '16px' }} className="btn" onClick={handleLogin}>
                     <b>Đăng nhập</b>
                     </Button>
                 </div>
