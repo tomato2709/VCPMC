@@ -1,11 +1,13 @@
-import { Avatar, message, Button } from 'antd'
+import React, { useState, useEffect } from 'react'
 import './Feedback.css'
-import React, { useEffect, useState } from 'react'
-import { collection, doc, setDoc } from 'firebase/firestore'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import Input from '../../components/input/Input'
 import CustomSelect from '../../components/select/Select'
+import { Avatar, message, Button } from 'antd'
 import { db } from '../../config/firebase'
+import { collection, doc, setDoc } from 'firebase/firestore'
+import { usePaymentsCollection } from '../../hooks/useSnapshot'
+import { useAppSelector } from '../../redux/store'
 
 interface IFeedback {
     id?: number,
@@ -20,6 +22,7 @@ let today: any = new Date();
 today = String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear();
 
 const Feedback: React.FC = () => {
+    const { user } = useAppSelector(state => state.user)
     const [ valueSelect, setValueSelect ] = useState('Chọn vấn đề bạn cần được hỗ trợ');
     const [ openFeedbackMessage, setOpenFeedbackMessage ] = useState<any>(false);
     const [ listMessageFeedback, setListMessageFeedback ] = useState<any[]>([])
@@ -27,10 +30,15 @@ const Feedback: React.FC = () => {
         id: Math.floor(Math.random() * 10000),
         avatar: null,
         date: today,
-        userName: 'test',
+        userName: user.displayName,
         topic: '',
         content: ''
     })
+    const { payments } = usePaymentsCollection('feedback');
+
+    useEffect(() => {
+        setListMessageFeedback(payments)
+    }, [payments])
 
     const handleChangeSetValueFeedBack = (e: any) => {
         const name = e.name;
@@ -103,9 +111,10 @@ const Feedback: React.FC = () => {
                             <h5>Tên người dùng</h5>
                             <Input
                                 type='text'
-                                value=''
+                                value={user.displayName}
                                 width={450}
                                 name='userName'
+                                disabled={true}
                                 setValue={handleChangeSetValueFeedBack}
                             />
                         </div>

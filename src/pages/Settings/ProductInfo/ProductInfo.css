@@ -1,0 +1,7 @@
+.editInformation .buttons {
+    display: flex;
+    justify-content: center;
+}
+.editInformation .buttons button {
+    margin: 14px 10px;
+}

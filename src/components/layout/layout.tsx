@@ -38,16 +38,17 @@ const Layout: React.FC = () => {
   
   return (
     <>
-      {user && <div className="home">
+      {user && <div className="layout">
         <Menu />
-        <div className="homeContentMain">
-          <div className="homeHeader">
+        <div className="layoutContentMain">
+          <div className="layoutHeader">
             <div className="avatar">
               <Link to="">
                 <Avatar style={{ backgroundColor: '#f56a00', marginRight: 5 }}>{user.avatar ?? user?.lastName.charAt(0).toUpperCase()}</Avatar>
-                <Typography style={{color: '#C8C8DB'}}>{user?.displayName}</Typography>
+                <Typography style={{color: '#C8C8DB'}}>
+                  {user?.displayName}<br /><Typography style={{color: '#FF7506'}}>{user?.isAdmin ? "Admin" : "User" }</Typography>
+                </Typography>
               </Link>
-              <Typography style={{color: '#C8C8DB'}}>{user?.isAdmin ? "Admin" : "User" }</Typography>
             </div>
           </div>
           <Outlet />
