@@ -17,6 +17,7 @@ import Manual from './pages/Support/Manual';
 import Configuration from './pages/Settings/Configuration/Configuration';
 import Cycle from './pages/Settings/Cycle/Cycle';
 import ManagerContract from './pages/Settings/Contract/Contract';
+import ProductInfo from './pages/Settings/ProductInfo/ProductInfo';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="configuration" element={<Configuration />} />
             <Route path="cycle" element={<Cycle />} />
             <Route path="manager-contract" element={<ManagerContract />} />
+            <Route path="product-information" element={<ProductInfo />} />
           </Route>
         </Routes>
       </BrowserRouter>

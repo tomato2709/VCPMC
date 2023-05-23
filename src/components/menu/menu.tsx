@@ -79,7 +79,7 @@ const Menu: React.FC = () => {
                   <Link to="">Phân quyền người dùng</Link>
                   <Link to="./configuration">Cấu hình</Link>
                   <Link to="./manager-contract">Quản lí hợp đồng</Link>
-                  <Link to="">Thông tin tác phẩm</Link>
+                  <Link to="./product-information">Thông tin tác phẩm</Link>
                   <Link to="./cycle">Chu kì đối soát</Link>
                 </div>
               </li>
