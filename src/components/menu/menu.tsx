@@ -1,13 +1,6 @@
 import React, {useState} from 'react'
 import './menu.css';
 import logo from '../../assets/logo.png';
-import { FaWindowRestore } from "react-icons/fa";
-import { FaRegCalendarAlt } from "react-icons/fa";
-import { SiGoogletagmanager } from "react-icons/si";
-import { TbReportMoney } from "react-icons/tb";
-import { MdPlaylistPlay } from "react-icons/md";
-import { SlSettings } from "react-icons/sl";
-import { MdContactSupport } from "react-icons/md";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { Link, NavLink } from 'react-router-dom';
