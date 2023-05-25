@@ -1,0 +1,40 @@
+.tabs .blockTabs {
+    display: flex;
+    margin: 10px 0;
+    width: 100%;
+}
+.tabs .blockTabs button {
+    width: 205px;
+    border-radius: 25px;
+    border: 1px solid var(--orange);
+    color: var(--white);
+    background-color: var(--violet);
+    height: 34px;
+    cursor: pointer;
+}
+.tabs .blockTabs .active-tab {
+    background-color: var(--orange);
+    z-index: 99;
+}
+.tabs .blockTabs button:nth-child(2) {
+    margin-left: -22px;
+}
+.tabs .contentTabs .dropdownAndSearch {
+    display: flex;
+    justify-content: space-between;
+    width: 93%;
+}
+.tabs .contentTabs .dropdownAndSearch > div {
+    display: flex;
+}
+.tabs .contentTabs .dropdownAndSearch > div > div {
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+}
+.tabs .content {
+    display: none;
+}
+.tabs .activeContent {
+    display: block;
+}
