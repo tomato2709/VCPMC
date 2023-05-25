@@ -72,7 +72,7 @@ const Feedback: React.FC = () => {
     }
 
     const select = {
-        items: ['Cách sử dụng ứng dụng?', 'Các vấn đề về hợp đồng?', 'Các vấn đề về bản quyền?', 'Các vấn đề về bài hát, bản ghi?'],
+        items: ['Tài khoản', 'Quản lý doanh thu', 'Vấn đề bản quyền', 'Khác'],
         onChange: (value: string) => {
             setValueSelect(value)
             setAddFeedback({

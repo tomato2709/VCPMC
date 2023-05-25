@@ -4,6 +4,7 @@ import logo from '../../assets/logo.png';
 import vi_flag from '../../assets/vi_flag.png';
 import Input from '../../components/input/Input';
 import { Button, Checkbox, message } from "antd";
+import { DownOutlined } from '@ant-design/icons';
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from '../../redux/store'
 import { fetchUser } from '../../redux/slice/userSlice'
@@ -54,7 +55,7 @@ const DangNhap: React.FC = () => {
     return (
         <div className="login">
             <div className="selectLanguage">
-                Tiếng Việt<img className="flag" src={vi_flag}></img>
+                Tiếng Việt<img className="flag" src={vi_flag}></img><DownOutlined />
             </div>
             <div>
                 <img className="logo" src={logo}></img>

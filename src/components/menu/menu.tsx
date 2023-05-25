@@ -1,13 +1,6 @@
 import React, {useState} from 'react'
 import './menu.css';
 import logo from '../../assets/logo.png';
-import { FaWindowRestore } from "react-icons/fa";
-import { FaRegCalendarAlt } from "react-icons/fa";
-import { SiGoogletagmanager } from "react-icons/si";
-import { TbReportMoney } from "react-icons/tb";
-import { MdPlaylistPlay } from "react-icons/md";
-import { SlSettings } from "react-icons/sl";
-import { MdContactSupport } from "react-icons/md";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { Link, NavLink } from 'react-router-dom';
@@ -33,7 +26,7 @@ const Menu: React.FC = () => {
           <div className="menu">
             <ul>
               <li>
-                <NavLink to=""><RecordIcon /><p>Kho bản ghi</p></NavLink>
+                <NavLink to="./record"><RecordIcon /><p>Kho bản ghi</p></NavLink>
               </li>
               <li>
                 <NavLink to=''><PlaylistIcon /><p>Playlist</p></NavLink>
@@ -76,7 +69,7 @@ const Menu: React.FC = () => {
                 <BiDotsVerticalRounded />
                 </div>
                 <div className="navigateChild">
-                  <Link to="">Phân quyền người dùng</Link>
+                  <Link to="./user-authorization">Phân quyền người dùng</Link>
                   <Link to="./configuration">Cấu hình</Link>
                   <Link to="./manager-contract">Quản lí hợp đồng</Link>
                   <Link to="./product-information">Thông tin tác phẩm</Link>

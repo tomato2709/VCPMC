@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import './layout.css';
 import Ava from '../../assets/avatar_test.png';
+import vi_flag from '../../assets/vi_flag.png';
 import Menu from '../menu/menu';
 import Avatar from 'antd/es/avatar';
 import Typography from 'antd/es/typography';
-import { Dropdown, MenuProps, message } from 'antd';
 import { Outlet, useLocation, useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import { auth } from '../../config/firebase';
 import { fetchUser } from '../../redux/slice/userSlice';
+import { DownOutlined } from '@ant-design/icons';
 
 const Layout: React.FC = () => {
   const navigate = useNavigate();
@@ -42,6 +43,9 @@ const Layout: React.FC = () => {
         <Menu />
         <div className="layoutContentMain">
           <div className="layoutHeader">
+            <div className="change-language">
+                Tiếng Việt<img className="flag" src={vi_flag}></img><DownOutlined />
+            </div>
             <div className="avatar">
               <Link to="">
                 <Avatar style={{ backgroundColor: '#f56a00', marginRight: 5 }}>{user.avatar ?? user?.lastName.charAt(0).toUpperCase()}</Avatar>

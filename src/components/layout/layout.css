@@ -25,3 +25,15 @@
     align-items: center;
     text-decoration: none;
 }
+
+.change-language {
+    width: 148px;
+    height: 40px;
+    border: 1px solid #c8c8db;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 24px;
+    cursor: pointer;
+}

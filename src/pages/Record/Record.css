@@ -6,7 +6,7 @@
     margin: 10px 15px;
 }
 .record .options > div p {
-    line-height: 32px;
+    line-height: 0;
 }
 .record .options .switch {
     margin-left: 50px;
@@ -21,7 +21,7 @@
     color: var(--white);
     font-size: 25px;
 }
-.record .options .switch .active svg {
+.record .options .switch .active-switch svg {
     color: #ff7506;
 }
 .record .listSongTable {
