@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import './Record.css'
 import InputSearch from '../../components/input/search/Search'
-import FeatureInPage from '../../components/feature/Feature';
-import CustomDropdown from '../../components/dropdown/Dropdown';
+import Option from '../../components/option/Option';
 import CustomTable from '../../components/table/Table';
+import Grid from '../../components/grid/Grid';
 import { Link } from 'react-router-dom';
-import { MenuProps, message } from 'antd'
+import { message, Select, Modal } from 'antd'
 import { AppstoreOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import { ColumnsType } from 'antd/es/table';
 import { AiOutlineCheck } from 'react-icons/ai';
@@ -18,13 +18,14 @@ import { useAppDispatch, useAppSelector } from '../../redux/store';
 import { DataTypeRecord, fetchRecord } from '../../redux/slice/recordSlice';
 
 const Record: React.FC = () => {
+    const [ viewStyle, setViewStyle ] = useState('table')
+    const [ selectedRow, setDisplayRowSelection ] = useState(false)
+    const [ openModal, setOpenModal ] = useState(false)
     const dispatch = useAppDispatch()
     const { user } = useAppSelector(state => state.user)
     const recordStore = useAppSelector(state => state.record.record)
     const [ record, setRecord ] = useState(recordStore)
-    const { payments, loading } = usePaymentsCollection('record')
-    const [ displaySwitch, setDisplaySwitch ] = useState('row')
-    const [ displayRowSelection, setDisplayRowSelection ] = useState(false)
+    const { payments } = usePaymentsCollection('record')
     const [ search, setSearch ] = useSearch(recordStore, 'nameMusic')
 
     useEffect(() => {
@@ -39,54 +40,33 @@ const Record: React.FC = () => {
       setRecord(payments)
     }, [payments])
 
-    const handleChangeSetSearchValue = (e: any) => {
+    const handleSearch = (e: any) => {
       const value = e.value;
       setSearch(value);
     }
 
-    const items: MenuProps['items'] = [
-      {
-        label: 'Tất cả',
-        key: '1',
-      },
-      {
-        label: 'Pop',
-        key: '2'
-      },
-      {
-        label: 'EDM',
-        key: '3'
-      },
-      {
-        label: 'Ballad',
-        key: '4',
-      }
-    ];
-
-    const menuProps = {
-      items,
-    };
-
-    const handleClickApproveSong = () => {
+    const handleApproveRecord = () => {
       setDisplayRowSelection(false);
       message.success('Đã phê duyệt')
     }
-    const handleClickCancelApproveSong = () => {
+
+    const handleCancelApproveRecord = () => {
       setDisplayRowSelection(false);
+      setOpenModal(false);
       message.success('Đã hủy phê duyệt')
     }
 
-    const featureProps = displayRowSelection ? [
+    const optionProps = selectedRow ? [
       {
         icon: AiOutlineCheck,
         text: 'Phê duyệt',
-        event: handleClickApproveSong,
+        event: handleApproveRecord,
         color: '#0FBF00'
       },
       {
         icon: FaTimes,
         text: 'Từ chối',
-        event: handleClickCancelApproveSong
+        event: () => setOpenModal(true)
       }
     ] :[
       {
@@ -149,7 +129,11 @@ const Record: React.FC = () => {
         dataIndex: 'date',
         key: 'date',
         render: (_, { status }) => {
-          return <>{status ? <p><RxDotFilled color="blue" />Còn thời hạn</p> : <p><RxDotFilled color="gray" />Hết thời hạn</p>}</>
+          return <>{status 
+            ? <p><RxDotFilled color="#347AFF" />Còn thời hạn <div className="expiry-date">{record[0].date}</div></p> 
+            : <p><RxDotFilled color="gray" />Hết thời hạn <div className="expiry-date">{record[0].date}</div></p>
+            }
+            </>
         }
       },
       {
@@ -185,45 +169,144 @@ const Record: React.FC = () => {
               <InputSearch
                 placeholder='Tên bản ghi...'
                 name='searchRecord'
-                setValue=''
+                setValue={handleSearch}
               />
             </div>
             <div>
               <div className="options">
-                <div>
+                <div className="select-wrap">
                   <p>Thể loại: </p>
-                  <CustomDropdown menuProps={menuProps} orange />
+                  <Select
+                    options={[
+                      {
+                        value: "all",
+                        label: "Tất cả",
+                      },
+                      {
+                        value: "pop",
+                        label: "Pop",
+                      },
+                      {
+                        value: "edm",
+                        label: "EDM",
+                      },
+                      {
+                        value: "ballad",
+                        label: "Ballad",
+                      },
+                    ]}
+                    style={{ width: 90 }}
+                    defaultValue="Tất cả"
+                  ></Select>
                 </div>
-                <div>
+                <div className="select-wrap">
                   <p>Định dạng: </p>
-                  <CustomDropdown menuProps={menuProps} orange />
+                  <Select
+                    options={[
+                      {
+                        value: "all",
+                        label: "Tất cả",
+                      },
+                      {
+                        value: "audio",
+                        label: "Âm thanh",
+                      },
+                      {
+                        value: "video",
+                        label: "Video",
+                      },
+                    ]}
+                    style={{ width: 120 }}
+                    defaultValue="Tất cả"
+                  ></Select>
                 </div>
-                <div>
+                <div className="select-wrap">
                   <p>Thời hạn sử dụng: </p>
-                  <CustomDropdown menuProps={menuProps} orange />
+                  <Select
+                    options={[
+                      {
+                        value: "all",
+                        label: "Tất cả",
+                      },
+                      {
+                        value: "current",
+                        label: "Còn thời hạn",
+                      },
+                      {
+                        value: "outdate",
+                        label: "Hết hạn",
+                      },
+                    ]}
+                    style={{ width: 120 }}
+                    defaultValue="Tất cả"
+                  ></Select>
                 </div>
-                <div>
+                <div className="select-wrap">
                   <p>Trạng thái: </p>
-                  <CustomDropdown menuProps={menuProps} orange />
+                  <Select
+                    options={[
+                      {
+                        value: "all",
+                        label: "Tất cả",
+                      },
+                      {
+                        value: "by-user",
+                        label: "Duyệt bởi người dùng",
+                      },
+                      {
+                        value: "by-auto",
+                        label: "Duyệt tự động",
+                      },
+                    ]}
+                    style={{ width: 200 }}
+                    defaultValue="Tất cả"
+                  ></Select>
                 </div>
                 <div className="switch">
-                  <span className={displaySwitch === 'row' ? `active-switch` : ''}>
+                  <span className={viewStyle === 'table' ? `active-switch` : ''} onClick={() => setViewStyle('table')}>
                     <UnorderedListOutlined />
                   </span>
-                  <span className={displaySwitch === 'table' ?  `active-switch` : ''}>
+                  <span className={viewStyle === 'grid' ?  `active-switch` : ''} onClick={() => setViewStyle('grid')}>
                     <AppstoreOutlined />
                   </span>
                 </div>
               </div>
             </div>
+            {viewStyle === 'table' &&
             <CustomTable 
-                rowSelection={displayRowSelection ? rowSelection : false} 
-                pagination={{pageSize: displayRowSelection ? 8 : 9}} columns={columns} 
+                rowSelection={selectedRow ? rowSelection : false} 
+                pagination={{pageSize: selectedRow ? 8 : 9}} columns={columns} 
                 dataSource={dataSource} 
                 heightProps={66} 
             />
+            }
+            {viewStyle === 'grid' &&
+              <div className="gridViewRecord">
+                {record.length 
+                ? record.map(item => (<Grid selectedRow={selectedRow} record={item} />)) 
+                : <p className="recordNotFound">Không tìm thấy bản ghi</p>}
+              </div>
+            }
         </div>
-        <FeatureInPage featureProps={featureProps} />
+        <Modal className="customModal"
+            title="Lý do từ chối phê duyệt"
+            open={openModal}
+            onOk={handleCancelApproveRecord}
+            onCancel={() => setOpenModal(false)}
+            >
+                <form action="">
+                    <div>
+                        <textarea 
+                            cols={61} rows={11} 
+                            placeholder='Cho chúng tôi biết lý do bạn muốn từ chối phê duyệt bản ghi này...'
+                            name='content'
+                            defaultValue=''
+                            onChange={(e: any) => ''}
+                        ></textarea>
+                    </div>
+                </form>
+            </Modal>
+        <Option optionProps={optionProps} />
       </div>
     )
 }

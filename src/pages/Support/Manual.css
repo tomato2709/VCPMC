@@ -1,3 +1,6 @@
-.userManual .contentTab {
+.manual .content {
     margin-top: 22px;
+}
+.manual .content :where(.css-dev-only-do-not-override-gqm7rn).ant-tabs-left >.ant-tabs-nav .ant-tabs-tab, :where(.css-dev-only-do-not-override-gqm7rn).ant-tabs-right >.ant-tabs-nav .ant-tabs-tab, :where(.css-dev-only-do-not-override-gqm7rn).ant-tabs-left >div>.ant-tabs-nav .ant-tabs-tab, :where(.css-dev-only-do-not-override-gqm7rn).ant-tabs-right >div>.ant-tabs-nav .ant-tabs-tab {
+    padding: 0px 24px;
 }

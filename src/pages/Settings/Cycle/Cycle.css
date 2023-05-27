@@ -1,16 +1,22 @@
-.cycle .container .contentPage {
+.cycle .container .content {
     width: 100%;
-    height: 75vh;
+    height: 67vh;
     background-color: var(--violetLight);
     border-radius: 8px;
     padding: 20px;
 }
-.cycle .container .contentPage h3 {
+.cycle .container .content h3 {
     margin: 10px 0;
 }
-.cycle .container .contentPage .quarter {
+.cycle .container .content .quarter {
     margin: 8px 0;
 }
-.cycle .container .contentPage .quarter p {
+.cycle .container .content .quarter p {
     margin: 6px 25px;
+}
+.cycle .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
 }

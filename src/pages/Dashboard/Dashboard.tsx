@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import './Dashboard.css'
 import Ava from '../../assets/avatar_test.png'
 import Input from "../../components/input/Input";
-import Feature from "../../components/feature/Feature";
-import CustomModal from "../../components/modal/Modal";
-import { Avatar, Button, message, Modal } from "antd";
+import Option from "../../components/option/Option";
+import { Avatar, Button, message, Modal, DatePicker } from "antd";
 import { useNavigate } from "react-router-dom";
 import { SlNote } from 'react-icons/sl'
 import { RxLockClosed } from 'react-icons/rx'
@@ -44,7 +43,7 @@ const Dashboard: React.FC = () => {
         }
     }
 
-    const handleChangeUpdateInfoUser = (e: any) => {
+    const handleUpdateUserInformation = (e: any) => {
         const name = e.name;
         const value = e.value;
 
@@ -54,7 +53,7 @@ const Dashboard: React.FC = () => {
         })
     }
 
-    const handleClickUpdateUserToFireStore = async () => {
+    const handleUpdateFirestoreDatabase = async () => {
         const params = {
             documentName: 'user',
             id: user.id,
@@ -70,7 +69,7 @@ const Dashboard: React.FC = () => {
         message.error("Chỉnh sửa thất bại")
     }
 
-    const handleClickOnOkModal = async () => {
+    const handleClickOkOnModal = async () => {
         if(updatePass.newPassword === updatePass.confirmPassword){
             try{
                 await updatePassword(currentUser, updatePass.newPassword)
@@ -87,7 +86,7 @@ const Dashboard: React.FC = () => {
         message.error("Đổi mật khẩu thất bại")
     }
 
-    const handleChangeValuePassword = (e: any) => {
+    const handleChangePassword = (e: any) => {
         const name = e.name;
         const value = e.value;
         setUpdatePass({
@@ -96,7 +95,7 @@ const Dashboard: React.FC = () => {
         })
     }
 
-    const featureProps = [
+    const optionProps = [
         {
             icon: SlNote,
             text: "Sửa thông tin",
@@ -137,7 +136,7 @@ const Dashboard: React.FC = () => {
                                 value={user.lastName} 
                                 disabled={updateUser ? false : true} 
                                 name="lastName"
-                                setValue={handleChangeUpdateInfoUser}
+                                setValue={handleUpdateUserInformation}
                             />
                         </div>
                         <div>
@@ -148,7 +147,7 @@ const Dashboard: React.FC = () => {
                                 value={user.firstName} 
                                 disabled={updateUser ? false : true} 
                                 name="firstName"
-                                setValue={handleChangeUpdateInfoUser}
+                                setValue={handleUpdateUserInformation}
                             />
                         </div>
                     </div>
@@ -161,7 +160,7 @@ const Dashboard: React.FC = () => {
                                 value={user.birthday} 
                                 disabled={updateUser ? false : true}
                                 name="birthday"
-                                setValue={handleChangeUpdateInfoUser}
+                                setValue={handleUpdateUserInformation}
                             />
                         </div>
                         <div>
@@ -172,7 +171,7 @@ const Dashboard: React.FC = () => {
                                 value={user.phone} 
                                 disabled={updateUser ? false : true}
                                 name="phone"
-                                setValue={handleChangeUpdateInfoUser}
+                                setValue={handleUpdateUserInformation}
                             />
                         </div>
                     </div>
@@ -213,30 +212,30 @@ const Dashboard: React.FC = () => {
             </div>
             {updateUser && <div className="button">
                 <Button type='default' ghost style={{ border: '1px solid #FF7506', color: '#FF7506', fontSize: '16px', width: '150px', height: '40px' }} onClick={() => setUpdateUser(false)}><b>Hủy</b></Button>
-                <Button type='primary' style={{ border: '1px solid #FF7506', background: '#FF7506', color: '#fff', fontSize: '16px', width: '150px', height: '40px' }} onClick={handleClickUpdateUserToFireStore}><b>Lưu</b></Button>
+                <Button type='primary' style={{ border: '1px solid #FF7506', background: '#FF7506', color: '#fff', fontSize: '16px', width: '150px', height: '40px' }} onClick={handleUpdateFirestoreDatabase}><b>Lưu</b></Button>
             </div>}
             <Modal className="customModal"
             title="Thay đổi mật khẩu"
             open={openModal}
-            onOk={handleClickOnOkModal}
+            onOk={handleClickOkOnModal}
             onCancel={() => setOpenModal(false)}
             >
                 <form action="">
                     <div>
                         <p>Mật khẩu hiện tại: </p>
-                        <Input width={471} type="password" name="password" value={'password'} setValue={handleChangeValuePassword} />
+                        <Input width={471} type="password" name="password" value={'password'} setValue={handleChangePassword} />
                     </div>
                     <div>
                         <p>Mật khẩu mới:</p>
-                        <Input width={471} require type="password" name="newPassword" setValue={handleChangeValuePassword} />
+                        <Input width={471} require type="password" name="newPassword" setValue={handleChangePassword} />
                     </div>
                     <div>
                         <p>Nhập lại mật khẩu mới:</p>
-                        <Input width={471} require type="password" name="confirmPassword" setValue={handleChangeValuePassword} />
+                        <Input width={471} require type="password" name="confirmPassword" setValue={handleChangePassword} />
                     </div>
                 </form>
             </Modal>
-            <Feature featureProps={featureProps} />
+            <Option optionProps={optionProps} />
         </div>
       )
 }

@@ -1,10 +1,10 @@
 import React from 'react'
-import './Feature.css'
+import './Option.css'
 
-interface IFeature {
-    featureProps: IItems[] | any
+interface OptionProps {
+    optionProps: OptionItems[] | any
 }
-interface IItems {
+interface OptionItems {
     icon: Function,
     text: string,
     event?: any,
@@ -12,11 +12,11 @@ interface IItems {
     color?: string
 }
 
-function Feature( {featureProps}: IFeature) {
+function Option({optionProps}: OptionProps) {
   return (
-    <div className="feature">
+    <div className="option">
         {
-            featureProps.map((item: IItems, index: number) => (
+            optionProps.map((item: OptionItems, index: number) => (
                 <div key={index} onClick={item.event}>
                     <div className='icon'>
                         <item.icon 
@@ -32,4 +32,4 @@ function Feature( {featureProps}: IFeature) {
   )
 }
 
-export default Feature
+export default Option

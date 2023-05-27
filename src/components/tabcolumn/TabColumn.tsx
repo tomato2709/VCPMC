@@ -1,4 +1,3 @@
-import React from 'react'
 import { Tabs } from 'antd';
 import './TabColumn.css'
 
@@ -16,7 +15,7 @@ function TabColumn({tabData}: ITabs) {
                 return {
                     label: <h5>{order}. {item.title}</h5>,
                     key: item.key,
-                    children: item.content
+                    children: <div><h5 className="manual-header">{item.title}</h5>{item.content}</div>
                 }
             })}
         />

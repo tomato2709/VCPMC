@@ -19,6 +19,9 @@ import Cycle from './pages/Settings/Cycle/Cycle';
 import ManagerContract from './pages/Settings/Contract/Contract';
 import ProductInfo from './pages/Settings/ProductInfo/ProductInfo';
 import UserAuthorization from './pages/Settings/UserAuthorization/UserAuthorization';
+import UpdateRecord from './pages/Record/UpdateRecord';
+import RevenueReport from './pages/Revenue/Report/Report';
+import RevenueDistribution from './pages/Revenue/Distribution/Distribution';
 
 function App() {
   return (
@@ -35,11 +38,17 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
             <Route path="record" element={<Record />} />
+            <Route path="record/update-information/:id" element={<UpdateRecord />} />
+
+            <Route path="revenue-report" element={<RevenueReport />} />
+            <Route path="revenue-distribution" element={<RevenueDistribution />} />
+
             <Route path="user-authorization" element={<UserAuthorization />} />
             <Route path="configuration" element={<Configuration />} />
             <Route path="cycle" element={<Cycle />} />
             <Route path="manager-contract" element={<ManagerContract />} />
             <Route path="product-information" element={<ProductInfo />} />
+
             <Route path="download" element={<Download />} />
             <Route path="feedback" element={<Feedback />} />
             <Route path="manual" element={<Manual />} />

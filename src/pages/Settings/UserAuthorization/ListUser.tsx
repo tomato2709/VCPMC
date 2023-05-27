@@ -1,5 +1,5 @@
 import React from 'react'
-import FeatureInPage from '../../../components/feature/Feature'
+import Option from '../../../components/option/Option'
 import CustomTable from '../../../components/table/Table'
 import { message, Switch } from 'antd'
 import { ColumnsType } from 'antd/es/table'
@@ -67,7 +67,7 @@ const ListUser: React.FC = () => {
     ]
     const dataSource: DataTypeUsers[] = users
 
-    const featureProps = [
+    const optionProps = [
         {
             icon: AiOutlineUserAdd,
             text: "Thêm người dùng",
@@ -85,7 +85,7 @@ const ListUser: React.FC = () => {
             heightProps={70}
             pagination={{pageSize: 10}}
         />
-        <FeatureInPage featureProps={featureProps} />
+        <Option optionProps={optionProps} />
     </>
   )
 }

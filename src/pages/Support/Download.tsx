@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button } from 'antd';
-import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import './Download.css'
+import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
+import { Button } from 'antd';
 
-const android = require('../../assets/android.png');
-const windows = require('../../assets/window.png');
 const upload = require('../../assets/upload.png');
+const windows = require('../../assets/window.png');
+const android = require('../../assets/android.png');
 
 const Download: React.FC = () => {
 
@@ -39,19 +39,19 @@ const Download: React.FC = () => {
             <div className='download'>
                 <div>
                     <div className='image'>
-                        <img src={upload} alt="" />
+                        <img src={upload} alt="Tool Upload" />
                     </div>
                     <Button className="btn" type='primary' style={{ border: '1px solid #FF7506', color: '#FFFFFF', fontSize: '16px', width: '175px', height: '45px' }}><b>Tool Upload</b></Button>
                 </div>
                 <div>
                     <div className='image'>
-                        <img src={windows} alt="" />
+                        <img src={windows} alt="Windows" />
                     </div>
                     <Button className="btn" type='primary' style={{ border: '1px solid #FF7506', color: '#FFFFFF', fontSize: '16px', width: '175px', height: '45px' }}><b>Tải App Windows</b></Button>
                 </div>
                 <div>
                     <div className='image'>
-                        <img src={android} alt="" />
+                        <img src={android} alt="Android" />
                     </div>
                     <Button className="btn" type='primary' style={{ border: '1px solid #FF7506', color: '#FFFFFF', fontSize: '16px', width: '175px', height: '45px' }}><b>Tải App Android</b></Button>
                 </div>

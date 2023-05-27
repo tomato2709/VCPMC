@@ -1,12 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Contract.css'
-import { ColumnsType } from 'antd/es/table'
-import { MdDateRange } from 'react-icons/md'
-import { GiNotebook } from 'react-icons/gi'
-import FeatureInPage from '../../../components/feature/Feature'
+import Option from '../../../components/option/Option'
 import CustomTable from '../../../components/table/Table'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 import { message } from 'antd'
+import { ColumnsType } from 'antd/es/table'
+import { MdDateRange } from 'react-icons/md'
+import { GiNotebook } from 'react-icons/gi'
 
 interface DataType {
   key: number,
@@ -48,7 +48,7 @@ const ManagerContract: React.FC = () => {
       key: 'revenue'
     }
   ]
-  const featureProps = [
+  const optionProps = [
     {
       icon: GiNotebook,
       text: 'Chỉnh sửa loại hợp đồng',
@@ -93,7 +93,7 @@ const ManagerContract: React.FC = () => {
             <h5>Hợp đồng được cảnh báo trước thời gian hết hạn: 365 ngày</h5>
         </div>
       </div>
-      <FeatureInPage featureProps={featureProps} />
+      <Option optionProps={optionProps} />
     </div>
   )
 }
