@@ -122,7 +122,7 @@ const ListRole: React.FC = () => {
             icon: FiUsers,
             text: "Thêm vai trò",
             event: () => {
-                user.isAdmin || message.warning('Chức năng này chỉ dành cho người quản lý')
+
             },
             unActive: user.isAdmin ? false : true
         }

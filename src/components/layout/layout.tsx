@@ -48,7 +48,7 @@ const Layout: React.FC = () => {
             </div>
             <div className="avatar">
               <Link to="">
-                <Avatar style={{ backgroundColor: '#f56a00', marginRight: 5 }}>{user.avatar ?? user?.lastName.charAt(0).toUpperCase()}</Avatar>
+                <Avatar src={Ava} style={{ backgroundColor: '#f56a00', marginRight: 5 }}>{user.avatar ?? user?.lastName.charAt(0).toUpperCase()}</Avatar>
                 <Typography style={{color: '#C8C8DB'}}>
                   {user?.displayName}<br /><Typography style={{color: '#FF7506'}}>{user?.isAdmin ? "Admin" : "User" }</Typography>
                 </Typography>

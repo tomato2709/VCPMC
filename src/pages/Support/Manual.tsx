@@ -3,14 +3,29 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import './Manual.css'
 import TabColumn from '../../components/tabcolumn/TabColumn';
 
-interface ITabData {
+interface ManualDataProps {
     title: string,
     key: number,
     content: string | number
 }
 
 const Manual: React.FC = () => {
-    const TabData: ITabData[] = [
+
+    
+    const breadcrumb = [
+        {
+          key: 1,
+          path: '',
+          namePage: 'Cài đặt'
+        },
+        {
+          key: 2,
+          path: '',
+          namePage: 'Hướng dẫn sử dụng'
+        }
+    ]
+
+    const ManualData: ManualDataProps[] = [
         {
             title: 'Lorem ipsum dolor sit amet',
             key: 1,
@@ -53,19 +68,6 @@ const Manual: React.FC = () => {
         },
     ]
 
-    const breadcrumb = [
-        {
-          key: 1,
-          path: '',
-          namePage: 'Cài đặt'
-        },
-        {
-          key: 2,
-          path: '',
-          namePage: 'Hướng dẫn sử dụng'
-        }
-      ]
-
   return (
     <div className="manual">
         <div>
@@ -73,7 +75,7 @@ const Manual: React.FC = () => {
         </div>
         <h3>Hướng dẫn sử dụng</h3>
         <div className="content">
-            <TabColumn tabData={TabData} />
+            <TabColumn tabData={ManualData} />
         </div>
     </div>
   )

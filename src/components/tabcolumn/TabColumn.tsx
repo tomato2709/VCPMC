@@ -1,11 +1,11 @@
 import { Tabs } from 'antd';
 import './TabColumn.css'
 
-interface ITabs {
+interface TabColProps {
     tabData: any[]
 }
 
-function TabColumn({tabData}: ITabs) {
+function TabColumn({tabData}: TabColProps) {
   return (
     <>
         <Tabs className="tab"

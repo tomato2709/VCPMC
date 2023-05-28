@@ -6,10 +6,10 @@ import CustomSelect from '../../components/select/Select'
 import { Avatar, message, Button } from 'antd'
 import { db } from '../../config/firebase'
 import { collection, doc, setDoc } from 'firebase/firestore'
-import { usePaymentsCollection } from '../../hooks/useSnapshot'
+import { useSnapshot } from '../../hooks/useSnapshot'
 import { useAppSelector } from '../../redux/store'
 
-interface IFeedback {
+interface FeedbackProps {
     id?: number,
     avatar: any,
     date: string,
@@ -26,7 +26,7 @@ const Feedback: React.FC = () => {
     const [ valueSelect, setValueSelect ] = useState('Chọn vấn đề bạn cần được hỗ trợ');
     const [ openFeedbackMessage, setOpenFeedbackMessage ] = useState<any>(false);
     const [ listMessageFeedback, setListMessageFeedback ] = useState<any[]>([])
-    const [ addFeedback, setAddFeedback ] = useState<IFeedback>({
+    const [ addFeedback, setAddFeedback ] = useState<FeedbackProps>({
         id: Math.floor(Math.random() * 10000),
         avatar: null,
         date: today,
@@ -34,11 +34,11 @@ const Feedback: React.FC = () => {
         topic: '',
         content: ''
     })
-    const { payments } = usePaymentsCollection('feedback');
+    const { snapshot } = useSnapshot('feedback');
 
     useEffect(() => {
-        setListMessageFeedback(payments)
-    }, [payments])
+        setListMessageFeedback(snapshot)
+    }, [snapshot])
 
     const handleChangeSetValueFeedBack = (e: any) => {
         const name = e.name;

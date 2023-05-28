@@ -13,19 +13,21 @@ import { FaTimes } from 'react-icons/fa';
 import { SlNote } from 'react-icons/sl';
 import { RxDotFilled } from 'react-icons/rx';
 import { useSearch } from '../../hooks/useSearch';
-import { usePaymentsCollection } from '../../hooks/useSnapshot';
+import { useSnapshot } from '../../hooks/useSnapshot';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import { DataTypeRecord, fetchRecord } from '../../redux/slice/recordSlice';
+import YouTube, { YouTubeProps } from 'react-youtube';
 
 const Record: React.FC = () => {
     const [ viewStyle, setViewStyle ] = useState('table')
     const [ selectedRow, setDisplayRowSelection ] = useState(false)
     const [ openModal, setOpenModal ] = useState(false)
+    const [ openVideoPlayer, setOpenVideoPlayer ] = useState(false)
     const dispatch = useAppDispatch()
     const { user } = useAppSelector(state => state.user)
     const recordStore = useAppSelector(state => state.record.record)
     const [ record, setRecord ] = useState(recordStore)
-    const { payments } = usePaymentsCollection('record')
+    const { snapshot } = useSnapshot('record')
     const [ search, setSearch ] = useSearch(recordStore, 'nameMusic')
 
     useEffect(() => {
@@ -37,8 +39,22 @@ const Record: React.FC = () => {
     }, [])
 
     useEffect(() => {
-      setRecord(payments)
-    }, [payments])
+      setRecord(snapshot)
+    }, [snapshot])
+
+    const onPlayerReady: YouTubeProps['onReady'] = (event) => {
+      // access to player in all event handlers via event.target
+      event.target.pauseVideo();
+    }
+  
+    const opts: YouTubeProps['opts'] = {
+      height: '290',
+      width: '460',
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+        autoplay: 1,
+      },
+    };
 
     const handleSearch = (e: any) => {
       const value = e.value;
@@ -73,7 +89,7 @@ const Record: React.FC = () => {
         icon: SlNote,
         text: "Quản lí phê duyệt",
         event: () => {
-          user.isAdmin ? setDisplayRowSelection(true) : message.warning('Chức năng này chỉ dành cho người quản lý')
+          user.isAdmin ? setDisplayRowSelection(true) : setDisplayRowSelection(false)
         },
         unActive: user.isAdmin ? false : true
       }
@@ -151,7 +167,16 @@ const Record: React.FC = () => {
         dataIndex: 'status2',
         key: 'status2',
         render: (_, { }) => {
-          return <a>Nghe</a>
+          return <>
+          <a onClick={() => setOpenVideoPlayer(true)}>Nghe</a>
+          <Modal className="customModal"
+            open={openVideoPlayer}
+            onCancel={() => setOpenVideoPlayer(false)}
+            footer={null}
+            >
+                <YouTube videoId="rYjQAzZfpMw" opts={opts} onReady={onPlayerReady} />
+            </Modal>
+          </>
         }
       },
     ]
@@ -291,6 +316,8 @@ const Record: React.FC = () => {
         <Modal className="customModal"
             title="Lý do từ chối phê duyệt"
             open={openModal}
+            okText="Từ chối"
+            cancelText="Hủy"
             onOk={handleCancelApproveRecord}
             onCancel={() => setOpenModal(false)}
             >

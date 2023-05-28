@@ -223,9 +223,9 @@ const RevenueDistribution: React.FC = () => {
           icon: MdOutlineLogout,
           text: 'Xuất file',
           event: () => {
-            user.isAdmin || message.warning('Chức năng này chỉ dành cho người quản lý')
+
           },
-          unActive:  user.isAdmin ? true : false
+          unActive:  user.isAdmin ? false : true
         }
       ]
 

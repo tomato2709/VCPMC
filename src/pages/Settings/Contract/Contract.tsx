@@ -7,6 +7,7 @@ import { message } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import { MdDateRange } from 'react-icons/md'
 import { GiNotebook } from 'react-icons/gi'
+import { useAppSelector } from '../../../redux/store'
 
 interface DataType {
   key: number,
@@ -16,7 +17,7 @@ interface DataType {
 }
 
 const ManagerContract: React.FC = () => {
-
+  const { user } = useAppSelector(state => state.user)
   const dataSource: DataType[] = [
     {
       key: 1,
@@ -53,17 +54,17 @@ const ManagerContract: React.FC = () => {
       icon: GiNotebook,
       text: 'Chỉnh sửa loại hợp đồng',
       event: () => {
-        message.warning('Chức năng này chỉ dành cho người quản lý')
+        
       },
-      unActive: true
+      unActive: user.isAdmin ? false : true
     },
     {
       icon: MdDateRange,
       text: 'Chỉnh sửa cảnh báo hết hạn',
       event: () => {
-        message.warning('Chức năng này chỉ dành cho người quản lý')
+        
       },
-      unActive:  true
+      unActive: user.isAdmin ? false : true
     }
   ]
   const breadcrumb = [

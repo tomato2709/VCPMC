@@ -25,7 +25,7 @@ const RevenueReport: React.FC = () => {
             icon: HiOutlineNewspaper,
             text: 'Báo cáo chi tiết',
             event: () => {
-                user.isAdmin || message.warning('Chức năng này chỉ dành cho người quản lý')
+
             },
             unActive: user.isAdmin ? false : true
         }

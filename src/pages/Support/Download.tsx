@@ -1,11 +1,11 @@
 import React from 'react';
 import './Download.css'
+import upload from '../../assets/upload.png'
+import windows from '../../assets/window.png'
+import android from '../../assets/android.png'
+import { DownloadBackground } from '../../assets/svg/DownloadBackground';
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import { Button } from 'antd';
-
-const upload = require('../../assets/upload.png');
-const windows = require('../../assets/window.png');
-const android = require('../../assets/android.png');
 
 const Download: React.FC = () => {
 
@@ -24,6 +24,7 @@ const Download: React.FC = () => {
       
   return (
     <div className="download">
+        <div className="download-bg"><DownloadBackground/></div>
         <div>
             <Breadcrumbs crumbs={breadcrumb} />
         </div>
@@ -34,7 +35,7 @@ const Download: React.FC = () => {
             <div className='intro'>
                 <h2>ỨNG DỤNG <mark style={{color: "#FF7506", background: 'none'}}>VCPMC</mark></h2>
                 <span>-----------------------------------------------</span>
-                <p>Bạn vui lòng chọn <b>nền tảng</b> phù hợp để trải nghiệm</p>
+                <p>Bạn vui lòng chọn <br /><b>nền tảng</b> phù hợp để trải nghiệm</p>
             </div>
             <div className='download'>
                 <div>

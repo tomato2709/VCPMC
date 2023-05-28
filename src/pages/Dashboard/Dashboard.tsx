@@ -122,7 +122,7 @@ const Dashboard: React.FC = () => {
             <div className="info">
                 <div className="avatar">
                     <div>
-                        <Avatar style={{ backgroundColor: '#f56a00', fontSize: 35}} size={170}>{user.avatar ?? user?.lastName.charAt(0).toUpperCase()}</Avatar>
+                        <Avatar src={Ava} style={{ backgroundColor: '#f56a00', fontSize: 35}} size={170}>{user.avatar ?? user?.lastName.charAt(0).toUpperCase()}</Avatar>
                     </div>
                     <h4>{user.displayName}</h4>
                 </div>
@@ -217,6 +217,8 @@ const Dashboard: React.FC = () => {
             <Modal className="customModal"
             title="Thay đổi mật khẩu"
             open={openModal}
+            okText="Lưu"
+            cancelText="Hủy"
             onOk={handleClickOkOnModal}
             onCancel={() => setOpenModal(false)}
             >

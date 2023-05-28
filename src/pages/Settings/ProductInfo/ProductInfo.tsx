@@ -7,8 +7,8 @@ import CustomTable from '../../../components/table/Table'
 import { message, Button } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import { AiOutlinePlus } from 'react-icons/ai'
-import { usePaymentsCollection } from '../../../hooks/useSnapshot'
-import { IUpdate, updateDocumentConfig } from '../../../hooks/updateDocument'
+import { useSnapshot } from '../../../hooks/useSnapshot'
+import { updateDocumentProps, updateDocumentConfig } from '../../../hooks/updateDocument'
 import { useAppSelector } from '../../../redux/store'
 
 interface GenreProps {
@@ -28,11 +28,11 @@ const ProductInfo: React.FC = () => {
         desc: '',
         id: ''
     });
-    const { payments } = usePaymentsCollection('genres');
+    const { snapshot } = useSnapshot('genres');
   
     useEffect(() => {
-        setGenre(payments)
-    }, [payments])
+        setGenre(snapshot)
+    }, [snapshot])
 
     const handleSetUpdateGenre = (e: any) => {
         const name = e.name;
@@ -45,7 +45,7 @@ const ProductInfo: React.FC = () => {
     }
 
     const handleUpdateGenre = async () => {
-        const params: IUpdate = {
+        const params: updateDocumentProps = {
             documentName: 'genres',
             id: editingRow,
             data: updateValue
@@ -131,7 +131,7 @@ const ProductInfo: React.FC = () => {
             icon: AiOutlinePlus,
             text: 'Thêm mới',
             event: () => {
-                user.isAdmin || message.warning('Chức năng này chỉ dành cho người quản lý')
+
             },
             unActive:  user.isAdmin ? false : true
         }
