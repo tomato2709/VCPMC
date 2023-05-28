@@ -1,0 +1,31 @@
+.revenue-distribution .distribution-datepicker {
+    display: flex;
+    justify-content: space-between;
+    width: 94%;
+}
+.revenue-distribution .distribution-datepicker > div:first-child {
+    display: flex;
+    height: 35px;
+}
+.revenue-distribution .distribution-datepicker > div:first-child h5 {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.datepicker.datepicker.datepicker {
+    background: #1e1e2e;
+    color: var(--white);
+    border: 1px solid var(--orange);
+    box-shadow: none;
+    height: 35px;
+}
+.datepicker.datepicker.datepicker .ant-picker-input > input {
+    color: var(--white);
+}
+.datepicker.datepicker.datepicker ::placeholder {
+    color: var(--white);
+}
+.datepicker.datepicker.datepicker svg {
+    color: var(--orange);
+}

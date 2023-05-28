@@ -13,7 +13,7 @@
 }
 .customTable.customTable.customTable .ant-table-cell {
     background-color: #2f2f41;
-    color: var(--orange);
+    color: #FFAC69;
     border: none;
     padding: 8px;
     font-family: "Montserrat Thin";
@@ -21,8 +21,10 @@
     font-weight: 500;
     font-size: 13px;
     line-height: 17px;
-    color: var(--orange);
     vertical-align: middle;
+}
+.customTable.customTable.customTable .ant-table-cell::before {
+    visibility: hidden;
 }
 .customTable.customTable.customTable :where(.css-dev-only-do-not-override-1n7nwfa).ant-table-wrapper .ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before, .customTable.customTable.customTable :where(.css-dev-only-do-not-override-1n7nwfa).ant-table-wrapper .ant-table-thead > tr > td:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
     width: 0;
@@ -52,6 +54,7 @@
 }
 .customTable.customTable.customTable .ant-pagination-item a {
     color: var(--white);
+    text-decoration: none;
 }
 .customTable.customTable.customTable .ant-pagination-item-active {
     background-color: var(--orangeLight);
@@ -73,4 +76,38 @@
     background-color: #2F2F41;
     border-radius: 8px;
     position: relative;
+}
+
+.pagination-amount-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -65px;
+    padding: 10px;
+}
+
+.pagination-amount-display .pagination-input-amount {
+    display: flex;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.015em;
+    color: rgba(245, 245, 255, 0.7);
+}
+
+.pagination-amount-display .pagination-input-amount input {
+    width: 48px;
+    height: 30px;
+    background: var(--violetLight);
+    border: 1px solid var(--orange);
+    border-radius: 4px;
+    margin: 0 8px;
+    text-align: center;
+    font-family: 'Montserrat Thin', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: rgba(245, 245, 255);
 }

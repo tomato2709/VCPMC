@@ -56,9 +56,9 @@ const Menu: React.FC = () => {
                 <BiDotsVerticalRounded />
                 </div>
                 <div className="navigateChild">
-                  <Link to="">Báo cáo doanh thu</Link>
-                  <Link to="">Phân phối doanh thu</Link>
+                  <Link to="./revenue-report">Báo cáo doanh thu</Link>
                   <Link to="">Lịch sử đối soát</Link>
+                  <Link to="./revenue-distribution">Phân phối doanh thu</Link>
                 </div>
               </li>
               <li>

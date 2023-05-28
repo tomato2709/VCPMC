@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react"
 
-export function useSearch( store: any[], field: string): any {
-    const [search, setSearch] = useState('');
+export function useSearch(store: any[], field: string): any {
+    const [ search, setSearch ] = useState('');
     const [ returnData, setReturnData ] = useState(store)
-
     const data = [...store]
-
     const keyword: string = removeSymbol(search);
 
     useEffect(() => {

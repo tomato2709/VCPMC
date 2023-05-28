@@ -21,6 +21,11 @@ function CustomTable({columns, dataSource, heightProps, rowSelection, pagination
             pagination={pagination} 
             loading={loading}
         />
+        <div className="pagination-amount-display">
+          <div className="pagination-input-amount">
+            <p>Hiển thị</p><input type="number" defaultValue={9} /><p>hàng trong mỗi trang</p>
+          </div>
+        </div>
     </div>
   )
 }

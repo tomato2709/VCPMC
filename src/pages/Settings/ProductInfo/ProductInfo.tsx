@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import './ProductInfo.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
-import FeatureInPage from '../../../components/feature/Feature'
+import Option from '../../../components/option/Option'
 import Input from '../../../components/input/Input'
 import CustomTable from '../../../components/table/Table'
 import { message, Button } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import { AiOutlinePlus } from 'react-icons/ai'
-import { usePaymentsCollection } from '../../../hooks/useSnapshot'
-import { IUpdate, updateDocumentConfig } from '../../../hooks/updateDocument'
+import { useSnapshot } from '../../../hooks/useSnapshot'
+import { updateDocumentProps, updateDocumentConfig } from '../../../hooks/updateDocument'
 import { useAppSelector } from '../../../redux/store'
 
-interface IUpdateInfoProduct {
+interface GenreProps {
     id?: string
-    type: string
+    genreName: string
     desc: string
     key: number
 }
@@ -21,20 +21,20 @@ interface IUpdateInfoProduct {
 const ProductInfo: React.FC = () => {
     const { user } = useAppSelector(state => state.user)
     const [ editingRow, setEditingRow ] = React.useState<any>('')
-    const [ inforProducts, setInforProducts ] = useState<IUpdateInfoProduct[]>([])
-    const [ updateValue, setUpdateValue ] = React.useState<IUpdateInfoProduct>({
+    const [ genre, setGenre ] = useState<GenreProps[]>([])
+    const [ updateValue, setUpdateValue ] = React.useState<GenreProps>({
         key: 0,
-        type: '',
+        genreName: '',
         desc: '',
         id: ''
     });
-    const { payments } = usePaymentsCollection('infor-products');
+    const { snapshot } = useSnapshot('genres');
   
     useEffect(() => {
-        setInforProducts(payments)
-    }, [payments])
+        setGenre(snapshot)
+    }, [snapshot])
 
-    const handleChangeSetUpdateInforProduct = (e: any) => {
+    const handleSetUpdateGenre = (e: any) => {
         const name = e.name;
         const value = e.value;
 
@@ -44,9 +44,9 @@ const ProductInfo: React.FC = () => {
         })
     }
 
-    const handleClickUpdateInforProduct = async () => {
-        const params: IUpdate = {
-            documentName: 'infor-products',
+    const handleUpdateGenre = async () => {
+        const params: updateDocumentProps = {
+            documentName: 'genres',
             id: editingRow,
             data: updateValue
         }
@@ -60,21 +60,21 @@ const ProductInfo: React.FC = () => {
         message.error("Cập nhật thất bại")
     }
 
-    const handleClickSetEditingRow = (items: any) => {
+    const handleSetEditingRow = (items: any) => {
         if(user.isAdmin) {
             setEditingRow(items.id)
             
             setUpdateValue({
-                type: items.type,
+                genreName: items.genreName,
                 desc: items.desc,
                 key: items.key,
             })
         }
     }
 
-    const dataSource: IUpdateInfoProduct[] = inforProducts
+    const dataSource: GenreProps[] = genre
 
-    const columns: ColumnsType<IUpdateInfoProduct> = [
+    const columns: ColumnsType<GenreProps> = [
         {
             title: 'STT',
             dataIndex: 'stt',
@@ -83,8 +83,8 @@ const ProductInfo: React.FC = () => {
         },
         {
             title: 'Tên thể loại',
-            dataIndex: 'type',
-            key: 'type',
+            dataIndex: 'genreName',
+            key: 'genreName',
             render: (_, items) => {
 
                 if(editingRow === items.id){
@@ -92,14 +92,14 @@ const ProductInfo: React.FC = () => {
                         <Input 
                             type='text' 
                             width={123} 
-                            name='type'
-                            setValue={handleChangeSetUpdateInforProduct} 
-                            value={items.type} 
+                            name='genreName'
+                            setValue={handleSetUpdateGenre} 
+                            value={items.genreName} 
                         />
                     </form>
                 }
                 else {
-                    return <p onClick={() => handleClickSetEditingRow(items)}>{items.type}</p>
+                    return <p onClick={() => handleSetEditingRow(items)}>{items.genreName}</p>
                 }
             }
         },
@@ -114,24 +114,24 @@ const ProductInfo: React.FC = () => {
                             type='text' 
                             width={700} 
                             name='desc'
-                            setValue={handleChangeSetUpdateInforProduct} 
+                            setValue={handleSetUpdateGenre} 
                             value={items.desc} 
                         />
                     </form>
                 }
                 else {
-                    return <p onClick={() => handleClickSetEditingRow(items)}>{items.desc}</p>
+                    return <p onClick={() => handleSetEditingRow(items)}>{items.desc}</p>
                 }
             }
         },
         
     ]
-    const featureProps = [
+    const optionProps = [
         {
             icon: AiOutlinePlus,
             text: 'Thêm mới',
             event: () => {
-                user.isAdmin || message.warning('Chức năng này chỉ dành cho người quản lý')
+
             },
             unActive:  user.isAdmin ? false : true
         }
@@ -164,10 +164,10 @@ const ProductInfo: React.FC = () => {
                 {editingRow ? 
                 <>
                     <Button type='default' ghost style={{ border: '1px solid #FF7506', color: '#FF7506', fontSize: '16px', width: '150px', height: '40px' }} onClick={() => setEditingRow('')}><b>Hủy</b></Button>
-                    <Button type='primary' style={{ border: '1px solid #FF7506', color: '#FF7506', fontSize: '16px', width: '150px', height: '40px' }} onClick={handleClickUpdateInforProduct}><b>Lưu</b></Button>
+                    <Button type='primary' style={{ border: '1px solid #FF7506', background: '#FF7506', color: '#FFFFFF', fontSize: '16px', width: '150px', height: '40px' }} onClick={handleUpdateGenre}><b>Lưu</b></Button>
                 </>: ''}
             </div>
-            <FeatureInPage featureProps={featureProps} />
+            <Option optionProps={optionProps} />
         </div>
     </>
   )

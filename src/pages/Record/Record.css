@@ -15,7 +15,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-right: 7px;
+    margin-right: 3px;
 }
 .record .options .switch span svg {
     color: var(--white);
@@ -24,14 +24,14 @@
 .record .options .switch .active-switch svg {
     color: #ff7506;
 }
-.record .listSongTable {
+.record .gridViewRecord {
     display: flex;
     flex-wrap: wrap;
     height: 65vh;
     overflow: auto;
     width: 94%;
 }
-.record .listSongTable .notfoundSong {
+.record .gridViewRecord .recordNotFound {
     margin-top: 50px;
 }
 .record .card {
@@ -52,10 +52,11 @@
     width: 100%;
 }
 .record .card .infoSong .info h4 {
-    margin-bottom: 0;
+    margin-bottom: -7px;
 }
 .record .card .infoSong .info span {
     display: flex;
+    margin-bottom: -25px;
 }
 .record .card .infoSong .info span h5 {
     margin-right: 7px;
@@ -66,7 +67,7 @@
 }
 .record .card .infoSong .type {
     display: flex;
-    margin-top: 13px;
+    margin-top: 21px;
 }
 .record .card .infoSong .type > div {
     margin-right: 6px;
@@ -81,9 +82,12 @@
 .record .card .infoSong .type > div p {
     font-size: 11px;
     text-align: center;
+    margin-top: 12px;
+    margin-bottom: 65px;
 }
 .record .card .infoSong .type > div h5 {
     text-align: center;
+    margin-top: -70px;
 }
 .record .card .edit {
     cursor: pointer;
@@ -91,18 +95,23 @@
     right: 10px;
     bottom: 10px;
 }
-.UpdateInformation .container {
+.expiry-date {
+    font-size: 12px;
+    font-style: italic;
+    color: gray;
+}
+
+.update-record .container {
     display: flex;
     margin: 12px 0;
     justify-content: center;
     width: 100%;
 }
-.UpdateInformation .container .info h4 {
+.update-record .container .info h4 {
     color: var(--orange);
 }
-.UpdateInformation .container .info > div:first-child {
+.update-record .container .info > div:first-child {
     width: 400px;
-    height: 286px;
     border-radius: 8px;
     padding: 12px;
     display: flex;
@@ -111,18 +120,18 @@
     background-color: var(--violetLight);
     margin: 0 7px 14px 0;
 }
-.UpdateInformation .container .info > div:first-child div {
+.update-record .container .info > div:first-child div {
     display: flex;
     justify-content: space-between;
     width: 93%;
-    margin: 2px 0;
+    margin: -10px 0;
 }
-.UpdateInformation .container .info > div:first-child div p {
+.update-record .container .info > div:first-child div p {
     display: flex;
     align-items: center;
     font-size: 12px;
 }
-.UpdateInformation .container .info > div:last-child {
+.update-record .container .info > div:last-child {
     background-color: var(--violetLight);
     border-radius: 8px;
     padding: 12px;
@@ -134,18 +143,18 @@
     align-items: center;
     margin: 7px 7px 0 0;
 }
-.UpdateInformation .container .info > div:last-child > div {
+.update-record .container .info > div:last-child > div {
     display: flex;
     justify-content: space-between;
     width: 93%;
-    margin: 2px 0;
+    margin: -6px 0;
 }
-.UpdateInformation .container .info > div:last-child > div p {
+.update-record .container .info > div:last-child > div p {
     display: flex;
     align-items: center;
     font-size: 12px;
 }
-.UpdateInformation .container .updateInfo {
+.update-record .container .updateInfo {
     width: 453px;
     height: 474px;
     border-radius: 8px;
@@ -153,13 +162,59 @@
     margin-left: 7px;
     background-color: var(--violetLight);
 }
-.UpdateInformation .container .updateInfo h4 {
+.update-record .container .updateInfo h4 {
     color: var(--orange);
 }
-.UpdateInformation .button {
+.update-record .button {
     display: flex;
     justify-content: center;
 }
-.UpdateInformation .button button {
+.update-record .button button {
     margin-right: 15px;
 }
+
+.select-wrap .ant-select-arrow {
+    color: var(--orange) !important;
+}
+
+.select-wrap .ant-select-arrow .anticon-down svg {
+    width: 13px !important;
+    height: 13px !important;
+    stroke: solid 10px var(--orange) !important;
+}
+
+.select-wrap .ant-select-selector {
+    background-color: var(--violet) !important;
+    border: 1px solid var(--orange) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15px;
+}
+
+.select-wrap .ant-select-selector .ant-select-selection-item {
+    font-style: normal !important;
+    line-height: 24px;
+    letter-spacing: -0.002em;
+    color: #f5f5ff !important;
+}
+
+.ant-select-dropdown-placement-bottomLeft {
+    background-color: #3e3e5b !important;
+}
+
+.ant-select-item-option-content {
+    font-style: normal;
+    line-height: 24px;
+    letter-spacing: -0.002em;
+    color: #f5f5ff !important;
+}
+
+.ant-select-item-option-selected {
+    background: var(--violetLight) !important;
+}
+
+.ant-select-item-option-active {
+    background: var(--violetLight) !important;
+}
+

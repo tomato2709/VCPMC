@@ -3,13 +3,13 @@ import './Search.css';
 
 const { Search } = Input;
 
-interface Iprops {
+interface SearchProps {
     placeholder: string,
     setValue?: any,
     name?: string
 }
 
-function InputSearch({placeholder, setValue, name}: Iprops) {
+function InputSearch({placeholder, setValue, name}: SearchProps) {
     return (
         <Search className="search" 
           style={{width: 453}}

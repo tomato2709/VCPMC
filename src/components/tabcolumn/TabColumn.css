@@ -6,19 +6,29 @@
     height: 70vh;
     border-radius: 8px;
 }
-.tab.tab.tab :where(.css-dev-only-do-not-override-1n7nwfa).ant-tabs .ant-tabs-tab-active .ant-tabs-tab-btn h5 {
+.tab.tab.tab .ant-tabs-tab-active .ant-tabs-tab-btn h5 {
     color: var(--orange);
 }
 .tab.tab.tab .ant-tabs-content-holder {
     background-color: var(--violetLight);
+    color: var(--white);
     border-radius: 8px;
     margin-left: 20px;
     padding: 10px;
     height: 70vh;
     border: none;
     overflow: auto;
+    text-align: justify;
 }
-.tab.tab.tab :where(.css-dev-only-do-not-override-1n7nwfa).ant-tabs .ant-tabs-ink-bar {
+.tab.tab.tab .ant-tabs-ink-bar {
     background-color: var(--orange);
     left: 0;
+}
+
+.manual-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+    font-size: 18px;
 }

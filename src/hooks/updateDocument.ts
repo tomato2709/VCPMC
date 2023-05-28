@@ -1,13 +1,13 @@
 import { doc, updateDoc } from "firebase/firestore"
 import { db } from "../config/firebase"
 
-export interface IUpdate {
+export interface updateDocumentProps {
     documentName: string,
     id: any,
     data: any
 }
 
-export const updateDocumentConfig = async ({documentName, id, data}: IUpdate) => {
+export const updateDocumentConfig = async ({documentName, id, data}: updateDocumentProps) => {
     const docRef = doc(db, documentName, `${id}`)
     try {
         await updateDoc(docRef, data);

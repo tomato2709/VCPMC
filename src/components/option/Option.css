@@ -1,4 +1,4 @@
-.feature {
+.option {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,17 +15,17 @@
     cursor: pointer;
     text-align: center;
 }
-.feature > div {
+.option > div {
     margin: 5px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.feature > div p {
+.option > div p {
     font-size: 11px;
 }
-.feature > div .icon {
+.option > div .icon {
     border-radius: 50%;
     background-color: #727288;
     width: 43px;
@@ -34,6 +34,6 @@
     align-items: center;
     justify-content: center;
 }
-.feature > div svg :hover {
+.option > div svg :hover {
     color: #ff4747;
 }

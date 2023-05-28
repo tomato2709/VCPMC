@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
-import './UserAuthorization.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs';
 import CustomTab from '../../../components/tab/Tab';
 import { fetchUsers } from '../../../redux/slice/listUserSlice';
 import { useAppDispatch } from '../../../redux/store';
 import ListUser from './ListUser';
+import ListRole from './ListRole';
 
 const UserAuthorization: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -32,7 +32,7 @@ const UserAuthorization: React.FC = () => {
             },
             {
             id: 2,
-            component: ListUser,
+            component: ListRole,
             },
         ]
             
@@ -51,15 +51,15 @@ const UserAuthorization: React.FC = () => {
         ]
     
   return (
-    <div className="authentication">
+    <div className="authorization">
       <div>
         <Breadcrumbs crumbs={breadcrumb} />
       </div>
       <div>
-      <h3>Danh sách người dùng</h3>
+        <h3>Danh sách người dùng</h3>
       </div>
       <div>
-          <CustomTab buttons={tabItems.buttons} items={tabItems.items} />
+        <CustomTab buttons={tabItems.buttons} items={tabItems.items} />
       </div>
     </div>
   )
