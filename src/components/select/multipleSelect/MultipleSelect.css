@@ -1,0 +1,7 @@
+.multiple-select {
+    margin: 2px 4px;
+    border: 1px solid var(--white);
+    border-radius: 3px;
+    padding: 3px;
+    font-size: 12px;
+}

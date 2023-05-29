@@ -199,7 +199,7 @@ const RevenueHistory: React.FC = () => {
             columns={columns} 
             dataSource={dataSource} 
             heightProps={65} 
-            pagination={{pageSize: 5}}
+            pagination={{pageSize: 9}}
           />
         </div>
         <Option optionProps={optionProps} />

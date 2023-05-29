@@ -214,7 +214,7 @@ const Record: React.FC = () => {
           <div>
             <div>
               <InputSearch
-                placeholder='Tên bản ghi...'
+                placeholder='Tên bản ghi, ca sĩ...'
                 name='searchRecord'
                 setValue={handleSearch}
               />
