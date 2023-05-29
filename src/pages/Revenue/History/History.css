@@ -1,0 +1,17 @@
+.revenue-history {
+    width: 100%;
+}
+.revenue-history .timeAndSearch {
+    display: flex;
+    justify-content: space-between;
+    width: 94%;
+}
+.revenue-history .timeAndSearch > div:first-child {
+    display: flex;
+    height: 35px;
+}
+.revenue-history .timeAndSearch > div:first-child h5 {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}

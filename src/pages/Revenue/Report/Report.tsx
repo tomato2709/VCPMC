@@ -1,7 +1,7 @@
 import './Report.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 import Option from '../../../components/option/Option'
-import { Select, message } from 'antd'
+import { Select } from 'antd'
 import { HiOutlineNewspaper } from 'react-icons/hi'
 import { useAppSelector } from '../../../redux/store'
 

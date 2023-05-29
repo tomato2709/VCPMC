@@ -57,7 +57,7 @@ const Menu: React.FC = () => {
                 </div>
                 <div className="navigateChild">
                   <Link to="./revenue-report">Báo cáo doanh thu</Link>
-                  <Link to="">Lịch sử đối soát</Link>
+                  <Link to="./revenue-history">Lịch sử đối soát</Link>
                   <Link to="./revenue-distribution">Phân phối doanh thu</Link>
                 </div>
               </li>

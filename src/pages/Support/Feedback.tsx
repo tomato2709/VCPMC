@@ -3,7 +3,8 @@ import './Feedback.css'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import Input from '../../components/input/Input'
 import CustomSelect from '../../components/select/Select'
-import { Avatar, message, Button } from 'antd'
+import { Avatar, Button } from 'antd'
+import Swal from 'sweetalert2'
 import { db } from '../../config/firebase'
 import { collection, doc, setDoc } from 'firebase/firestore'
 import { useSnapshot } from '../../hooks/useSnapshot'
@@ -34,6 +35,17 @@ const Feedback: React.FC = () => {
         topic: '',
         content: ''
     })
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom',
+        showConfirmButton: false,
+        timer: 800,
+        heightAuto: false,
+        customClass: 'swal-height',
+        showClass: {
+            popup: 'animate__animated animate__fadeIn'
+        },
+    })
     const { snapshot } = useSnapshot('feedback');
 
     useEffect(() => {
@@ -62,13 +74,23 @@ const Feedback: React.FC = () => {
                         topic: '',
                         content: ''
                     })
-                    message.success("Cảm ơn bạn đã góp ý cho chúng tôi")
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Gửi feedback thành công!',
+                        background: '#727288',
+                        color: '#C8C8DB',
+                    })
                 })
             } catch(err) {
             }
             return
         }
-        message.warning("Bạn chưa nhập nội dung cho chúng tôi")
+        Toast.fire({
+            icon: 'warning',
+            title: 'Bạn chưa nhập nội dung!',
+            background: '#727288',
+            color: '#C8C8DB',
+        })
     }
 
     const select = {

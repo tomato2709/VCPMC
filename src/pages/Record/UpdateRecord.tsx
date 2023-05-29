@@ -4,7 +4,8 @@ import RecordImage from '../../assets/record2.png'
 import Option from '../../components/option/Option'
 import Input from '../../components/input/Input'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
-import { Avatar, message, Upload, Button } from 'antd'
+import { Avatar, Upload, Button } from 'antd'
+import Swal from 'sweetalert2';
 import { FaTimes } from 'react-icons/fa'
 import { RxDotFilled } from 'react-icons/rx'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -16,6 +17,18 @@ import { updateDocumentConfig } from '../../hooks/updateDocument'
 const UpdateRecord: React.FC = () => {
     const { id } = useParams();
     const storeRecords = useAppSelector(state => state.record.record); 
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom',
+        showConfirmButton: false,
+        timer: 800,
+        heightAuto: false,
+        customClass: 'swal-height',
+        showClass: {
+            popup: 'animate__animated animate__fadeIn'
+        },
+    })
 
     const record = storeRecords.filter(item => {
         return item.id === id
@@ -52,9 +65,19 @@ const UpdateRecord: React.FC = () => {
         try {
             await deleteDoc(doc(db, "record", `${id}`));
             navigate('../../record');
-            message.success("Xóa thành công")
+            Toast.fire({
+                icon: 'success',
+                title: 'Xóa thành công',
+                background: '#727288',
+                color: '#C8C8DB',
+            })
         } catch(err) {
-            message.error("Xóa thất bại")            
+            Toast.fire({
+                icon: 'error',
+                title: 'Đăng nhập thất bại',
+                background: '#727288',
+                color: '#C8C8DB'
+            })          
         }
     }
 
@@ -87,10 +110,20 @@ const UpdateRecord: React.FC = () => {
           const update = await updateDocumentConfig(params);
           if(update) {
             navigate('../../record');
-            message.success("Chỉnh sửa thành công")
+            Toast.fire({
+                icon: 'success',
+                title: 'Chỉnh sửa thành công',
+                background: '#727288',
+                color: '#C8C8DB',
+            })
             return
           } 
-          message.error("Chỉnh sửa thất bại")
+          Toast.fire({
+            icon: 'error',
+            title: 'Chỉnh sửa thất bại',
+            background: '#727288',
+            color: '#C8C8DB'
+        })  
     }
 
     const handleChangeAvatar = () => {

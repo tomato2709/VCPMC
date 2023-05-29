@@ -22,6 +22,7 @@ import UserAuthorization from './pages/Settings/UserAuthorization/UserAuthorizat
 import UpdateRecord from './pages/Record/UpdateRecord';
 import RevenueReport from './pages/Revenue/Report/Report';
 import RevenueDistribution from './pages/Revenue/Distribution/Distribution';
+import RevenueHistory from './pages/Revenue/History/History';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route path="record/update-information/:id" element={<UpdateRecord />} />
 
             <Route path="revenue-report" element={<RevenueReport />} />
+            <Route path="revenue-history" element={<RevenueHistory />} />
             <Route path="revenue-distribution" element={<RevenueDistribution />} />
 
             <Route path="user-authorization" element={<UserAuthorization />} />

@@ -4,7 +4,8 @@ import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 import Option from '../../../components/option/Option'
 import Input from '../../../components/input/Input'
 import CustomTable from '../../../components/table/Table'
-import { message, Button } from 'antd'
+import { Button } from 'antd'
+import Swal from 'sweetalert2'
 import { ColumnsType } from 'antd/es/table'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { useSnapshot } from '../../../hooks/useSnapshot'
@@ -28,6 +29,17 @@ const ProductInfo: React.FC = () => {
         desc: '',
         id: ''
     });
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom',
+        showConfirmButton: false,
+        timer: 800,
+        heightAuto: false,
+        customClass: 'swal-height',
+        showClass: {
+            popup: 'animate__animated animate__fadeIn'
+        },
+    })
     const { snapshot } = useSnapshot('genres');
   
     useEffect(() => {
@@ -53,11 +65,21 @@ const ProductInfo: React.FC = () => {
 
         const update = await updateDocumentConfig(params)
         if(update) {
-            message.success('Cập nhật thành công')
+            Toast.fire({
+                icon: 'success',
+                title: 'Cập nhật thành công',
+                background: '#727288',
+                color: '#C8C8DB',
+            })
             setEditingRow('')
             return 
         }
-        message.error("Cập nhật thất bại")
+        Toast.fire({
+            icon: 'error',
+            title: 'Cập nhật thất bại',
+            background: '#727288',
+            color: '#C8C8DB'
+        })
     }
 
     const handleSetEditingRow = (items: any) => {

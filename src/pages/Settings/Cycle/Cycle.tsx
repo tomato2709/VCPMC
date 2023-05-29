@@ -1,16 +1,35 @@
 import React, {useState} from 'react'
 import './Cycle.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
-import { Radio, DatePicker, Button, message } from 'antd'
+import { Radio, DatePicker, Button } from 'antd'
+import Swal from 'sweetalert2'
 
 const Cycle: React.FC = () => {
     const [value, setValue] = useState("quarter");
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'bottom',
+      showConfirmButton: false,
+      timer: 800,
+      heightAuto: false,
+      customClass: 'swal-height',
+      showClass: {
+          popup: 'animate__animated animate__fadeIn'
+      },
+  })
+
     const onChange = (e: any) => {
       setValue(e.target.value);
       localStorage.setItem("cycleValue", e.target.value);
     };
     const handleSaveCycle = (e:any) => {
-      message.success('Lưu cài đặt chu kỳ đối soát thành công')
+      Toast.fire({
+        icon: 'success',
+        title: 'Lưu cài đặt chu kỳ đối soát thành công',
+        background: '#727288',
+        color: '#C8C8DB',
+      })
     }
     const breadcrumb = [
         {
