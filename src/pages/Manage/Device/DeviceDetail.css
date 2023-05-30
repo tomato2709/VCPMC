@@ -5,7 +5,11 @@
 }
 .device-detail .content {
     display: flex;
-    width: 100%;
+    width: 87%;
+    background-color: var(--violetLight);
+    border-radius: 8px;
+    padding-bottom: 20px;
+    padding-left: 20px;
 }
 .device-detail .content > div {
     width: 50%;

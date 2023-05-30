@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './menu.css';
 import logo from '../../assets/logo.png';
 import { BiDotsVerticalRounded } from "react-icons/bi";
@@ -32,7 +32,7 @@ const Menu: React.FC = () => {
                 <NavLink to='./playlist'><PlaylistIcon /><p>Playlist</p></NavLink>
               </li>
               <li>
-                <NavLink to=''><CreateCalendarIcon /><p>Lập lịch phát</p></NavLink>
+                <NavLink to='./schedule'><CreateCalendarIcon /><p>Lập lịch phát</p></NavLink>
               </li>
               <li>
                 <div>
@@ -44,7 +44,7 @@ const Menu: React.FC = () => {
                 <div className="navigateChild">
                   <Link to="">Quản lí hợp đồng</Link>
                   <Link to="./manage-device">Quản lí thiết bị</Link>
-                  <Link to="">Đối tác uỷ quyền</Link>
+                  <Link to="./manage-authorized-partner">Đơn vị uỷ quyền</Link>
                   <Link to="">Đơn vị sử dụng</Link>
                 </div>
               </li>
