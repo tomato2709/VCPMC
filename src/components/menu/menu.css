@@ -51,6 +51,7 @@
 }
 .sidebar .menu li .active-item {
     color: var(--orange);
+    background: var(--white)
 }
 .sidebar .menu li svg {
     color: var(--white);

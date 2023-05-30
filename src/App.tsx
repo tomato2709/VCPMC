@@ -29,6 +29,10 @@ import AddRecordIntoPlaylist from './pages/Playlist/AddPlaylist/AddRecordIntoPla
 import ManageDevice from './pages/Manage/Device/Device';
 import AddDevice from './pages/Manage/Device/AddDevice';
 import DeviceDetail from './pages/Manage/Device/DeviceDetail';
+import ManageAuthorizedPartner from './pages/Manage/AuthorizedPartner/AuthorizedPartner';
+import EditAuthorizedPartner from './pages/Manage/AuthorizedPartner/EditAuthorizedPartner';
+import Schedule from './pages/Schedule/Schedule';
+import ScheduleDetail from './pages/Schedule/ScheduleDetail';
 
 function App() {
   return (
@@ -51,9 +55,14 @@ function App() {
             <Route path="playlist/add-playlist" element={<AddPlaylist />} />
             <Route path="playlist/add-playlist/add-record-to-playlist" element={<AddRecordIntoPlaylist />} />
 
+            <Route path="schedule" element={<Schedule />} />
+            <Route path="schedule/detail/id" element={<ScheduleDetail />} />
+
             <Route path="manage-device" element={<ManageDevice />} />
             <Route path="manage-device/add-device" element={<AddDevice />} />
             <Route path="manage-device/device-detail" element={<DeviceDetail />} />
+            <Route path="manage-authorized-partner" element={<ManageAuthorizedPartner />} />
+            <Route path="manage-authorized-partner/detail/:id" element={<EditAuthorizedPartner />} />
 
             <Route path="revenue-report" element={<RevenueReport />} />
             <Route path="revenue-history" element={<RevenueHistory />} />

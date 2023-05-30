@@ -1,0 +1,27 @@
+.edit-auth-partner {
+    position: fixed;
+    left: 45px;
+    width: 100%;
+}
+.edit-auth-partner .content {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+.edit-auth-partner .content span {
+    display: flex;
+    margin: 8px 0;
+}
+.edit-auth-partner .content span h5 {
+    display: flex;
+    align-items: center;
+    min-width: 160px;
+}
+.edit-auth-partner .content span h5 i {
+    color: #ff4747;
+}
+.edit-auth-partner .button {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
