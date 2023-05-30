@@ -7,6 +7,7 @@ import { ColumnsType } from 'antd/es/table'
 import { MdDateRange } from 'react-icons/md'
 import { GiNotebook } from 'react-icons/gi'
 import { useAppSelector } from '../../../redux/store'
+import { useNavigate } from 'react-router-dom'
 
 interface DataType {
   key: number,
@@ -16,6 +17,7 @@ interface DataType {
 }
 
 const ManagerContract: React.FC = () => {
+  const navigate = useNavigate()
   const { user } = useAppSelector(state => state.user)
   const dataSource: DataType[] = [
     {
@@ -61,7 +63,7 @@ const ManagerContract: React.FC = () => {
       icon: MdDateRange,
       text: 'Chỉnh sửa cảnh báo hết hạn',
       event: () => {
-        
+        navigate('edit-contract-warning')
       },
       unActive: user.isAdmin ? false : true
     }
