@@ -6,7 +6,7 @@
 .tabs .blockTabs button {
     width: 205px;
     border-radius: 20px;
-    border: 1px solid var(--orange);
+    border: 1px solid var(--darkOrange);
     color: var(--white);
     background-color: var(--violet);
     height: 34px;
@@ -14,7 +14,8 @@
     font-family: 'Montserrat Thin';
 }
 .tabs .blockTabs .active-tab {
-    background-color: var(--orange);
+    background-color: var(--darkOrange);
+    font-weight: bold;
     z-index: 99;
 }
 .tabs .blockTabs button:nth-child(2) {

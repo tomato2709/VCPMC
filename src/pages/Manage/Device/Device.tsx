@@ -3,7 +3,8 @@ import './Device.css'
 import CustomTable from '../../../components/table/Table';
 import Option from '../../../components/option/Option';
 import InputSearch from '../../../components/input/search/Search';
-import { Select, message } from 'antd';
+import { Select } from 'antd';
+import Swal from 'sweetalert2';
 import { ColumnsType } from 'antd/es/table';
 import { MdAdd } from 'react-icons/md';
 import { FiPower } from 'react-icons/fi';
@@ -27,6 +28,17 @@ const ManageDevice: React.FC = () => {
   const [ listDevice, setListDevice ] = useState<DataTypeDevice[]>(devices)
   const [ removeDevice, setRemoveDevice ] = useState<DataTypeDevice[]>([]);
   const [ search, setSearch ] = useSearch(snapshot, 'nameDevice');
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom',
+    showConfirmButton: false,
+    timer: 800,
+    heightAuto: false,
+    customClass: 'swal-height',
+    showClass: {
+        popup: 'animate__animated animate__fadeIn'
+    },
+  })
 
   useEffect(() => {
     setListDevice(search)
@@ -50,7 +62,12 @@ const ManageDevice: React.FC = () => {
     })
     return 
    }
-   message.warning("Bạn chưa chọn thiết bị")
+   Toast.fire({
+    icon: 'warning',
+    title: 'Chưa chọn thiết bị',
+    background: '#727288',
+    color: '#C8C8DB',
+  })
   }
 
   const optionProps = [
