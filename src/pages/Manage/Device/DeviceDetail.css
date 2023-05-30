@@ -1,0 +1,27 @@
+.device-detail {
+    position: fixed;
+    left: 45px;
+    width: 100%;
+}
+.device-detail .content {
+    display: flex;
+    width: 100%;
+}
+.device-detail .content > div {
+    width: 50%;
+    margin-top: 30px;
+}
+.device-detail .content > div span {
+    margin: 8px;
+    display: flex;
+}
+.device-detail .content > div span h5 {
+    display: flex;
+    align-items: center;
+    min-width: 150px;
+}
+.device-detail .button {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}

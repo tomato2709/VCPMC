@@ -38,12 +38,12 @@ const UpdateRecord: React.FC = () => {
 
     const [ updateRecord, setUpdateRecord ] = React.useState({
         key: record[0].key,
-        nameMusic: record[0].nameMusic,
-        IRCID: record[0].IRCID,
-        time: record[0].time,
+        recordName: record[0].recordName,
+        ISRCID: record[0].ISRCID,
+        duration: record[0].duration,
         singer: record[0].singer,
         author: record[0].author,
-        type: record[0].type,
+        genre: record[0].genre,
         format: record[0].format,
         status: record[0].status,
     })
@@ -138,7 +138,7 @@ const UpdateRecord: React.FC = () => {
     <div className="update-record">
         <Breadcrumbs crumbs={breadcrumb} />
         <div>
-            <h3>Bản ghi - {record[0].nameMusic}</h3>
+            <h3>Bản ghi - {record[0].recordName}</h3>
         </div>
         <div className="container">
             <div className="info">
@@ -172,7 +172,7 @@ const UpdateRecord: React.FC = () => {
                     <h4>Thông tin ủy quyền</h4>
                     <div>
                         <h5>Số hợp đồng:</h5>
-                        <p>{record[0].IRCID}</p>
+                        <p>{record[0].ISRCID}</p>
                     </div>
                     <div>
                         <h5>Ngày nhận ủy quyền:</h5>
@@ -180,11 +180,11 @@ const UpdateRecord: React.FC = () => {
                     </div>
                     <div>
                         <h5>Ngày hết hạn:</h5>
-                        <p>{record[0].date}</p>
+                        <p>{record[0].expiryDate}</p>
                     </div>
                     <div>
                         <h5>Trạng thái:</h5>
-                        {record[0].status ? <p><RxDotFilled color="blue" />Còn thời hạn</p> : <p><RxDotFilled color="gray" />Hết thời hạn</p>}
+                        {record[0].status ? <p><RxDotFilled color="#347AFF" />Còn thời hạn</p> : <p><RxDotFilled color="gray" />Đã hết hạn</p>}
                     </div>
                 </div>
             </div>
@@ -192,9 +192,9 @@ const UpdateRecord: React.FC = () => {
                 <h4>Chỉnh sửa thông tin</h4>
                 <form action="">
                     <label htmlFor="">Tên bản ghi:</label> <br />
-                    <Input type='text' width={410} height={32} value={record[0].nameMusic} name="nameMusic" setValue={handleChangeUpdateRecord} /> <br />
+                    <Input type='text' width={410} height={32} value={record[0].recordName} name="recordName" setValue={handleChangeUpdateRecord} /> <br />
                     <label htmlFor="">Mã ISRC:</label> <br />
-                    <Input type='text' width={410} height={32} value={record[0].IRCID} name="IRCID" setValue={handleChangeUpdateRecord}/> <br />
+                    <Input type='text' width={410} height={32} value={record[0].ISRCID} name="ISRCID" setValue={handleChangeUpdateRecord}/> <br />
                     <label htmlFor="">Ca sĩ:</label> <br />
                     <Input type='text' width={410} height={32} value={record[0].singer} name="singer" setValue={handleChangeUpdateRecord}/> <br />
                     <label htmlFor="">Tác giả:</label> <br />
@@ -202,7 +202,7 @@ const UpdateRecord: React.FC = () => {
                     <label htmlFor="">Nhà sản xuất:</label> <br />
                     <Input type='text' width={410} height={32} value={record[0].author}/> <br />
                     <label htmlFor="">Thể loại:</label> <br />
-                    <Input type='text' width={410} height={32} value={record[0].type} name="type" setValue={handleChangeUpdateRecord}/> <br />
+                    <Input type='text' width={410} height={32} value={record[0].genre} name="genre" setValue={handleChangeUpdateRecord}/> <br />
                     
                 </form>
             </div>

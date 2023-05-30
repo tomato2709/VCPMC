@@ -43,7 +43,7 @@ const Menu: React.FC = () => {
                 </div>
                 <div className="navigateChild">
                   <Link to="">Quản lí hợp đồng</Link>
-                  <Link to="">Quản lí thiết bị</Link>
+                  <Link to="./manage-device">Quản lí thiết bị</Link>
                   <Link to="">Đối tác uỷ quyền</Link>
                   <Link to="">Đơn vị sử dụng</Link>
                 </div>

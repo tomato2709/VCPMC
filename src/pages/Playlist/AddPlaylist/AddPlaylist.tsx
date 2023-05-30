@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
 const AddPlaylist: React.FC = () => {
     return (
-        <div>AddPlaylist</div>
+        <div>Thêm Playlist</div>
     )
 }
 
-export default AddPlaylist;
+export default AddPlaylist

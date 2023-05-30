@@ -29,7 +29,7 @@ const Record: React.FC = () => {
     const recordStore = useAppSelector(state => state.record.record)
     const [ record, setRecord ] = useState(recordStore)
     const { snapshot } = useSnapshot('record')
-    const [ search, setSearch ] = useSearch(recordStore, 'nameMusic')
+    const [ search, setSearch ] = useSearch(recordStore, 'recordName')
     const Toast = Swal.mixin({
       toast: true,
       position: 'bottom',
@@ -129,18 +129,18 @@ const Record: React.FC = () => {
       },
       {
         title: 'Tên bản ghi',
-        dataIndex: 'nameMusic',
-        key: 'nameMusic'
+        dataIndex: 'recordName',
+        key: 'recordName'
       },
       {
-        title: 'Mã IRC',
-        dataIndex: 'IRCID',
-        key: 'IRCID'
+        title: 'Mã ISRC',
+        dataIndex: 'ISRCID',
+        key: 'ISRCID'
       },
       {
         title: 'Thời lượng',
-        dataIndex: 'time',  
-        key: 'time'
+        dataIndex: 'duration',  
+        key: 'duration'
       },
       {
         title: 'Ca sĩ',
@@ -154,8 +154,8 @@ const Record: React.FC = () => {
       },
       {
         title: 'Thể loại',
-        dataIndex: 'type',
-        key: 'type'
+        dataIndex: 'genre',
+        key: 'genre'
       },
       {
         title: 'Định dạng',
@@ -164,12 +164,12 @@ const Record: React.FC = () => {
       },
       {
         title: 'Thời hạn sử dụng',
-        dataIndex: 'date',
-        key: 'date',
+        dataIndex: 'expiryDate',
+        key: 'expiryDate',
         render: (_, { status }) => {
           return <>{status 
-            ? <p><RxDotFilled color="#347AFF" />Còn thời hạn <div className="expiry-date">{record[0].date}</div></p> 
-            : <p><RxDotFilled color="gray" />Hết thời hạn <div className="expiry-date">{record[0].date}</div></p>
+            ? <p><RxDotFilled color="#347AFF" />Còn thời hạn <div className="expiry-date">{record[0].expiryDate}</div></p> 
+            : <p><RxDotFilled color="gray" />Đã hết hạn <div className="expiry-date">{record[0].expiryDate}</div></p>
             }
             </>
         }

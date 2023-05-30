@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import '../../pages/Record/Record.css'
 import RecordImage from '../../assets/record_image.png'
 import { Checkbox, Modal } from 'antd'
@@ -50,7 +50,7 @@ function Grid({ record, selectedRow = false }: RecordProps) {
         </div>
         <div className="infoSong">
             <div className="info">
-                <h4>{record.nameMusic}</h4>
+                <h4>{record.recordName}</h4>
                 <div>
                     <span>
                         <h5>Ca sĩ:</h5>
@@ -62,13 +62,13 @@ function Grid({ record, selectedRow = false }: RecordProps) {
                     </span>
                     <span>
                         <h5>Số hợp đồng:</h5>
-                        <p>{record.IRCID}</p>
+                        <p>{record.ISRCID}</p>
                     </span>
                 </div>
                 <div className="type">
                     <div>
                         <p>Thể loại</p>
-                        <h5>{record.type}</h5>
+                        <h5>{record.genre}</h5>
                     </div>
                     <div>
                         <p>Định dạng</p>
@@ -76,7 +76,7 @@ function Grid({ record, selectedRow = false }: RecordProps) {
                     </div>
                     <div>
                         <p>Thời lượng</p>
-                        <h5>{record.time}</h5>
+                        <h5>{record.duration}</h5>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
-import { Select } from 'antd'
 import React from 'react'
 import './Select.css'
+import { Select } from 'antd'
 
 interface ISelect {
     onChange?: any
