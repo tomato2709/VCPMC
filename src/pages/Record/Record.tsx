@@ -5,7 +5,8 @@ import Option from '../../components/option/Option';
 import CustomTable from '../../components/table/Table';
 import Grid from '../../components/grid/Grid';
 import { Link } from 'react-router-dom';
-import { message, Select, Modal } from 'antd'
+import { Select, Modal } from 'antd'
+import Swal from 'sweetalert2';
 import { AppstoreOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import { ColumnsType } from 'antd/es/table';
 import { AiOutlineCheck } from 'react-icons/ai';
@@ -29,6 +30,17 @@ const Record: React.FC = () => {
     const [ record, setRecord ] = useState(recordStore)
     const { snapshot } = useSnapshot('record')
     const [ search, setSearch ] = useSearch(recordStore, 'nameMusic')
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'bottom',
+      showConfirmButton: false,
+      timer: 800,
+      heightAuto: false,
+      customClass: 'swal-height',
+      showClass: {
+          popup: 'animate__animated animate__fadeIn'
+      },
+    })
 
     useEffect(() => {
       setRecord(search)
@@ -63,13 +75,23 @@ const Record: React.FC = () => {
 
     const handleApproveRecord = () => {
       setDisplayRowSelection(false);
-      message.success('Đã phê duyệt')
+      Toast.fire({
+        icon: 'success',
+        title: 'Đã phê duyệt',
+        background: '#727288',
+        color: '#C8C8DB',
+    })
     }
 
     const handleCancelApproveRecord = () => {
       setDisplayRowSelection(false);
       setOpenModal(false);
-      message.success('Đã hủy phê duyệt')
+      Toast.fire({
+        icon: 'error',
+        title: 'Đã hủy phê duyệt',
+        background: '#727288',
+        color: '#C8C8DB'
+      })
     }
 
     const optionProps = selectedRow ? [
@@ -192,7 +214,7 @@ const Record: React.FC = () => {
           <div>
             <div>
               <InputSearch
-                placeholder='Tên bản ghi...'
+                placeholder='Tên bản ghi, ca sĩ...'
                 name='searchRecord'
                 setValue={handleSearch}
               />

@@ -107,6 +107,37 @@ textarea {
   padding: 12px;
 }
 
+.dropdown.dropdown.dropdown .ant-dropdown :where(.css-dev-only-do-not-override-1n7nwfa).ant-dropdown .ant-dropdown-menu, .dropdown.dropdown.dropdown :where(.css-dev-only-do-not-override-1n7nwfa).ant-dropdown-menu-submenu .ant-dropdown-menu {
+  background-color: #3e3e5b;
+}
+
+.space.space.space .ant-btn-default {
+  background-color: transparent;
+  color: #c8c8db;
+  margin: 0 15px;
+}
+.space.space.space :where(.css-dev-only-do-not-override-1n7nwfa).ant-dropdown .ant-dropdown-menu {
+  background-color: #3e3e5b;
+  color: #fff;
+}
+
+.message.message.message .ant-message .ant-message-notice .ant-message-notice-content {
+  padding: 12px 16px;
+  background: #3e3e5b;
+  color: #c8c8db;
+}
+
+.swal-height {
+  height: 10vh;
+  font-size: 10px;
+  margin-bottom: 36px;
+  align-content: center;
+}
+
+.animate__animated.animate__fadeIn {
+  --animate-duration: 0.2s;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

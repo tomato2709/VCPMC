@@ -1,7 +1,6 @@
 import React from 'react'
 import Option from '../../../components/option/Option'
 import CustomTable from '../../../components/table/Table'
-import { message } from 'antd';
 import { ColumnsType } from 'antd/es/table'
 import { FiUsers } from "react-icons/fi";
 import { useAppSelector } from '../../../redux/store';

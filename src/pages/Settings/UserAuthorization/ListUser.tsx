@@ -1,7 +1,8 @@
 import React from 'react'
 import Option from '../../../components/option/Option'
 import CustomTable from '../../../components/table/Table'
-import { message, Switch } from 'antd'
+import { Switch } from 'antd'
+import Swal from 'sweetalert2'
 import { ColumnsType } from 'antd/es/table'
 import { AiOutlineUserAdd } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
@@ -11,6 +12,17 @@ import { useAppSelector } from '../../../redux/store'
 const ListUser: React.FC = () => {
     const { users } = useAppSelector(state => state.users)
     const { user } = useAppSelector(state => state.user)
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom',
+        showConfirmButton: false,
+        timer: 800,
+        heightAuto: false,
+        customClass: 'swal-height',
+        showClass: {
+            popup: 'animate__animated animate__fadeIn'
+        },
+    })
 
     const columns: ColumnsType<DataTypeUsers> = [
         {
@@ -72,7 +84,7 @@ const ListUser: React.FC = () => {
             icon: AiOutlineUserAdd,
             text: "Thêm người dùng",
             event: () => {
-                user.isAdmin || message.warning('Chức năng này chỉ dành cho người quản lý')
+
             },
             unActive: user.isAdmin ? false : true
         }

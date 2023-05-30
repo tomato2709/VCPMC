@@ -6,6 +6,7 @@ import storage from 'redux-persist/lib/storage'
 import userSlice from "./slice/userSlice";
 import usersSlice from "./slice/listUserSlice";
 import recordSlice from "./slice/recordSlice";
+import playlistSlice from "./slice/playlistSlice";
 
 const persistConfig = {
     key: 'root',
@@ -15,7 +16,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
     user: userSlice.reducer,
 	users: usersSlice.reducer,
-	record: recordSlice.reducer
+	record: recordSlice.reducer,
+	playlist: playlistSlice.reducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer) 

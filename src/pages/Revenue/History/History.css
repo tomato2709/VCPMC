@@ -1,16 +1,16 @@
-.historyForControl {
+.revenue-history {
     width: 100%;
 }
-.historyForControl .timeAndSearch {
+.revenue-history .timeAndSearch {
     display: flex;
     justify-content: space-between;
     width: 94%;
 }
-.historyForControl .timeAndSearch > div:first-child {
+.revenue-history .timeAndSearch > div:first-child {
     display: flex;
     height: 35px;
 }
-.historyForControl .timeAndSearch > div:first-child h5 {
+.revenue-history .timeAndSearch > div:first-child h5 {
     display: flex;
     align-items: center;
     margin-right: 20px;

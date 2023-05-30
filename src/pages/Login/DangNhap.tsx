@@ -3,7 +3,8 @@ import './login.css';
 import logo from '../../assets/logo.png';
 import vi_flag from '../../assets/vi_flag.png';
 import Input from '../../components/input/Input';
-import { Button, Checkbox, message } from "antd";
+import { Button, Checkbox } from "antd";
+import Swal from 'sweetalert2';
 import { DownOutlined } from '@ant-design/icons';
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from '../../redux/store'
@@ -17,6 +18,18 @@ const DangNhap: React.FC = () => {
     const user = useAppSelector((state) => state.user.user);
     const [ login, setLogin ] = useState({email: '', password: ''});
     const [ error, setError ] = useState(false);
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom',
+        showConfirmButton: false,
+        timer: 800,
+        heightAuto: false,
+        customClass: 'swal-height',
+        showClass: {
+            popup: 'animate__animated animate__fadeIn'
+        },
+    })
   
     useEffect(() => {
       if(user) {
@@ -31,12 +44,22 @@ const DangNhap: React.FC = () => {
         await logIn(login.email, login.password)
         .then(res => {
             dispatch(fetchUser({uid: res.user.uid}))
-            message.success("Đăng nhập thành công")
+            Toast.fire({
+                icon: 'success',
+                title: 'Đăng nhập thành công',
+                background: '#727288',
+                color: '#C8C8DB',
+            })
             navigate('/');
           })
       } catch(error: any) {
         setError(true)
-        message.error("Đăng nhập thất bại")
+        Toast.fire({
+            icon: 'error',
+            title: 'Đăng nhập thất bại',
+            background: '#727288',
+            color: '#C8C8DB'
+        })
       }
     }
   

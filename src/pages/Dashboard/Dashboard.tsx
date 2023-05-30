@@ -3,7 +3,8 @@ import './Dashboard.css'
 import Ava from '../../assets/avatar_test.png'
 import Input from "../../components/input/Input";
 import Option from "../../components/option/Option";
-import { Avatar, Button, message, Modal, DatePicker } from "antd";
+import { Avatar, Button, Modal, DatePicker } from "antd";
+import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 import { SlNote } from 'react-icons/sl'
 import { RxLockClosed } from 'react-icons/rx'
@@ -22,6 +23,17 @@ const Dashboard: React.FC = () => {
     const { user } = useAppSelector((state) => state.user);
     const [ updateUser, setUpdateUser ] = useState(false)
     const [ openModal, setOpenModal ] = useState(false)
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom',
+        showConfirmButton: false,
+        timer: 800,
+        heightAuto: false,
+        customClass: 'swal-height',
+        showClass: {
+            popup: 'animate__animated animate__fadeIn'
+        },
+    })
     const [ updatePass, setUpdatePass ] = useState({
         newPassword: '',
         confirmPassword: '',
@@ -29,7 +41,7 @@ const Dashboard: React.FC = () => {
     const [ infoUser, setInfoUser ] = useState<any>({
         birthday: user.birthday,
         firstName: user.firstName,
-        lastName: '',
+        lastName: user.lastName,
         phone: user.phone,
     })
 
@@ -39,7 +51,12 @@ const Dashboard: React.FC = () => {
             dispatch(deleteUser());
             navigate('../login')
         } catch(err) {
-            message.error("error")
+            Toast.fire({
+                icon: 'error',
+                title: 'Lỗi đăng xuất!',
+                background: '#727288',
+                color: '#C8C8DB'
+            })
         }
     }
 
@@ -62,11 +79,21 @@ const Dashboard: React.FC = () => {
           
         const update = await updateDocumentConfig(params);
         if(update) {
-            message.success("Chỉnh sửa thành công")
+            Toast.fire({
+                icon: 'success',
+                title: 'Chỉnh sửa thành công',
+                background: '#727288',
+                color: '#C8C8DB',
+            })
             setUpdateUser(false)
             return
         } 
-        message.error("Chỉnh sửa thất bại")
+        Toast.fire({
+            icon: 'error',
+            title: 'Chỉnh sửa thất bại',
+            background: '#727288',
+            color: '#C8C8DB'
+        })
     }
 
     const handleClickOkOnModal = async () => {
@@ -75,15 +102,30 @@ const Dashboard: React.FC = () => {
                 await updatePassword(currentUser, updatePass.newPassword)
                     .then(res => {
                         setOpenModal(false)
-                        message.success('Đổi mật khẩu thành công')
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Đổi mật khẩu thành công',
+                            background: '#727288',
+                            color: '#C8C8DB',
+                        })
                     })
             } catch(err) {
                 console.log(err);
-                message.error("Đổi mật khẩu thất bại")
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Đổi mật khẩu thất bại',
+                    background: '#727288',
+                    color: '#C8C8DB'
+                })
             }
             return
         }
-        message.error("Đổi mật khẩu thất bại")
+        Toast.fire({
+            icon: 'error',
+            title: 'Đổi mật khẩu thất bại',
+            background: '#727288',
+            color: '#C8C8DB'
+        })
     }
 
     const handleChangePassword = (e: any) => {
@@ -225,7 +267,7 @@ const Dashboard: React.FC = () => {
                 <form action="">
                     <div>
                         <p>Mật khẩu hiện tại: </p>
-                        <Input width={471} type="password" name="password" value={'password'} setValue={handleChangePassword} />
+                        <Input width={471} type="password" name="password" value={user.password} setValue={handleChangePassword} />
                     </div>
                     <div>
                         <p>Mật khẩu mới:</p>

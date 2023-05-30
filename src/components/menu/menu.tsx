@@ -29,7 +29,7 @@ const Menu: React.FC = () => {
                 <NavLink to="./record"><RecordIcon /><p>Kho bản ghi</p></NavLink>
               </li>
               <li>
-                <NavLink to=''><PlaylistIcon /><p>Playlist</p></NavLink>
+                <NavLink to='./playlist'><PlaylistIcon /><p>Playlist</p></NavLink>
               </li>
               <li>
                 <NavLink to=''><CreateCalendarIcon /><p>Lập lịch phát</p></NavLink>
@@ -57,7 +57,7 @@ const Menu: React.FC = () => {
                 </div>
                 <div className="navigateChild">
                   <Link to="./revenue-report">Báo cáo doanh thu</Link>
-                  <Link to="">Lịch sử đối soát</Link>
+                  <Link to="./revenue-history">Lịch sử đối soát</Link>
                   <Link to="./revenue-distribution">Phân phối doanh thu</Link>
                 </div>
               </li>

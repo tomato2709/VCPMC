@@ -22,6 +22,10 @@ import UserAuthorization from './pages/Settings/UserAuthorization/UserAuthorizat
 import UpdateRecord from './pages/Record/UpdateRecord';
 import RevenueReport from './pages/Revenue/Report/Report';
 import RevenueDistribution from './pages/Revenue/Distribution/Distribution';
+import RevenueHistory from './pages/Revenue/History/History';
+import Playlist from './pages/Playlist/Playlist';
+import AddPlaylist from './pages/Playlist/AddPlaylist/AddPlaylist';
+import AddRecordIntoPlaylist from './pages/Playlist/AddPlaylist/AddRecordIntoPlaylist';
 
 function App() {
   return (
@@ -40,7 +44,12 @@ function App() {
             <Route path="record" element={<Record />} />
             <Route path="record/update-information/:id" element={<UpdateRecord />} />
 
+            <Route path="playlist" element={<Playlist />} />
+            <Route path="playlist/add-playlist" element={<AddPlaylist />} />
+            <Route path="playlist/add-playlist/add-record" element={<AddRecordIntoPlaylist />} />
+
             <Route path="revenue-report" element={<RevenueReport />} />
+            <Route path="revenue-history" element={<RevenueHistory />} />
             <Route path="revenue-distribution" element={<RevenueDistribution />} />
 
             <Route path="user-authorization" element={<UserAuthorization />} />

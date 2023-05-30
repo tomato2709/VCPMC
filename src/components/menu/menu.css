@@ -49,7 +49,7 @@
     opacity: 1;
     transition: 0.2s ease;
 }
-.sidebar .menu li .active {
+.sidebar .menu li .active-item {
     color: var(--orange);
 }
 .sidebar .menu li svg {
@@ -94,15 +94,15 @@
     z-index: 99;
     transition: 0.2s ease;
 }
+.sidebar .menu li .navigateChild :hover {
+    background: var(--violetLight);
+    transition: 0.2s ease;
+}
 .sidebar .menu li .navigateChild a {
     color: var(--white);
     font-size: 13px;
     width: 100%;
     padding: 7px 0;
-}
-.sidebar .menu li .navigateChild a:hover {
-    color: var(--orange);
-    transition: 0.2s ease;
 }
 .sidebar .btnClickToggleSidebar {
     width: 17px;
