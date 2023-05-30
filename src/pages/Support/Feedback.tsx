@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Feedback.css'
+import Ava from '../../assets/avatar_feedback.png'
+import Inbox from '../../assets/inbox.png'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import Input from '../../components/input/Input'
 import CustomSelect from '../../components/select/Select'
@@ -126,6 +128,40 @@ const Feedback: React.FC = () => {
         <div>
             <h3>Feedback</h3>
         </div>
+        {user.isAdmin ?
+            <div className='content-admin'>
+                <div className='message-feedback'>
+                    {listMessageFeedback.map(item => (
+                        <div key={item.id} onClick={() => setOpenFeedbackMessage(item)} className='message'>
+                            <Avatar src={Ava} size={50} style={{ backgroundColor: '#f56a00', margin: '5px 12px 0 0' }}>{item.avatar ?? item.userName.charAt(0).toUpperCase()}</Avatar>
+                            <div>
+                                <h5>{item.userName}</h5>
+                                <p>Chủ đề: {item.topic}</p>
+                            </div>
+                            <p className='date'>{item.date}</p>
+                        </div>
+                    ))}
+                </div>
+                <div className='content-message-feedback'>
+                    {openFeedbackMessage ? 
+                        <div className='detail-feedback'>
+                            <div>
+                                <Avatar src={Ava} size={50} style={{ backgroundColor: '#f56a00', margin: '0 12px 15px 0' }}>{openFeedbackMessage.avatar ?? openFeedbackMessage.userName.charAt(0).toUpperCase()}</Avatar>
+                                <div>
+                                    <h5>{openFeedbackMessage?.userName}</h5>
+                                </div>
+                                <p className='date'>{openFeedbackMessage?.date}</p>
+                            </div>
+                            <p><b>Chủ đề: {openFeedbackMessage?.topic}</b></p>
+                            <p>{openFeedbackMessage?.content}</p>
+                        </div> : 
+                        <div className='no-message'>
+                            <img width={450} src={Inbox} alt="" />
+                        </div>    
+                    }
+                </div>
+            </div> :
+
             <div className='content'>
                 <div className='form'>
                     <form action="">
@@ -164,7 +200,8 @@ const Feedback: React.FC = () => {
                 <div className='button'>
                     <Button type='primary' style={{ border: '1px solid #FF7506', background: '#FF7506', color: '#fff', fontSize: '16px', height: "38px", width: "148px" }} onClick={handleClickAddFeedback}><b>Gửi</b></Button>
                 </div>
-            </div>    
+            </div>
+        }
     </div>
   )
 }

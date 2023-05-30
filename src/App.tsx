@@ -33,6 +33,9 @@ import ManageAuthorizedPartner from './pages/Manage/AuthorizedPartner/Authorized
 import EditAuthorizedPartner from './pages/Manage/AuthorizedPartner/EditAuthorizedPartner';
 import Schedule from './pages/Schedule/Schedule';
 import ScheduleDetail from './pages/Schedule/ScheduleDetail';
+import ManageUnit from './pages/Manage/Unit/Unit';
+import ManageContract from './pages/Manage/Contract/Contract';
+import EditContractWarning from './pages/Settings/Contract/EditContractWarning';
 
 function App() {
   return (
@@ -63,6 +66,8 @@ function App() {
             <Route path="manage-device/device-detail" element={<DeviceDetail />} />
             <Route path="manage-authorized-partner" element={<ManageAuthorizedPartner />} />
             <Route path="manage-authorized-partner/detail/:id" element={<EditAuthorizedPartner />} />
+            <Route path="manage-unit" element={<ManageUnit />} />
+            <Route path="manage-contract" element={<ManageContract />} />
 
             <Route path="revenue-report" element={<RevenueReport />} />
             <Route path="revenue-history" element={<RevenueHistory />} />
@@ -72,6 +77,7 @@ function App() {
             <Route path="configuration" element={<Configuration />} />
             <Route path="cycle" element={<Cycle />} />
             <Route path="manager-contract" element={<ManagerContract />} />
+            <Route path="manager-contract/edit-contract-warning" element={<EditContractWarning />} />
             <Route path="product-information" element={<ProductInfo />} />
 
             <Route path="download" element={<Download />} />

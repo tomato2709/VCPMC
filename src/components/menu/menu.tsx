@@ -42,10 +42,10 @@ const Menu: React.FC = () => {
                 <BiDotsVerticalRounded />
                 </div>
                 <div className="navigateChild">
-                  <Link to="">Quản lí hợp đồng</Link>
+                  <Link to="./manage-contract">Quản lí hợp đồng</Link>
                   <Link to="./manage-device">Quản lí thiết bị</Link>
                   <Link to="./manage-authorized-partner">Đơn vị uỷ quyền</Link>
-                  <Link to="">Đơn vị sử dụng</Link>
+                  <Link to="./manage-unit">Đơn vị sử dụng</Link>
                 </div>
               </li>
               <li>
