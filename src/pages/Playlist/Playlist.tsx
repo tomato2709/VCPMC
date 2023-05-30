@@ -3,6 +3,7 @@ import Option from '../../components/option/Option'
 import InputSearch from '../../components/input/search/Search'
 import CustomTable from '../../components/table/Table'
 import MultipleSelect from '../../components/select/multipleSelect/MultipleSelect'
+import Grid from '../../components/grid/Grid'
 import { ColumnsType } from 'antd/es/table'
 import { MdPlaylistAdd } from 'react-icons/md'
 import { Link, useNavigate } from 'react-router-dom'
@@ -10,6 +11,7 @@ import { useSearch } from '../../hooks/useSearch'
 import { useSnapshot } from '../../hooks/useSnapshot'
 import { DataTypePlaylist, fetchPlaylist } from '../../redux/slice/playlistSlice'
 import { useAppDispatch, useAppSelector } from '../../redux/store'
+import { AppstoreOutlined, UnorderedListOutlined } from '@ant-design/icons'
 
 const Playlist: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -19,6 +21,8 @@ const Playlist: React.FC = () => {
   const [ playlistStore, setPlaylistStore ] = useState<DataTypePlaylist[]>(playlist);
   const { snapshot } = useSnapshot('playlist');
   const [ search, setSearch ] = useSearch(playlist, 'title');
+  const [ viewStyle, setViewStyle ] = useState('table')
+  const [ selectedRow, setDisplayRowSelection ] = useState(false)
 
   useEffect(() => {
     setPlaylistStore(search)
@@ -101,18 +105,24 @@ const Playlist: React.FC = () => {
         return <Link to={`detail/${id}`}>Chi tiết</Link>
       }
     },
-  ] 
+  ]
+
+  const rowSelection = {
+    onChange: (selectedRowKeys: number, selectedRows: any, ) => {
+    }
+  };
+
   return (
     <div className="playlist">
         <h3>Playlist</h3>
         <div>
-        <InputSearch 
-            placeholder='Tìm kiếm chủ đề, người tạo...' 
-            setValue={handleChangeSetSearchValue}  
-        />
+          <InputSearch 
+              placeholder='Tìm kiếm chủ đề, người tạo...' 
+              setValue={handleChangeSetSearchValue}  
+          />
         </div>
         <div>
-        <CustomTable pagination={{pageSize: 10}} columns={columns} dataSource={dataSource} heightProps={70} /> 
+          <CustomTable pagination={{pageSize: 10}} columns={columns} dataSource={dataSource} heightProps={70} /> 
         </div>
         <Option optionProps={optionProps} />
     </div>

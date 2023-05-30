@@ -1,3 +1,4 @@
+import React from 'react'
 import { Table } from 'antd'
 import './Table.css'
 
@@ -9,9 +10,10 @@ interface ITableProps {
     pagination?: any
     rowSelection?: any
     loading?: boolean
+    scroll?: any
 }
 
-function CustomTable({columns, dataSource, heightProps, rowSelection, pagination = false, widthProps = 94, loading}: ITableProps) {
+function CustomTable({columns, dataSource, heightProps, rowSelection, pagination = false, widthProps = 94, loading, scroll}: ITableProps) {
   return (
     <div className="tableContainer" style={{height: `${heightProps}vh`, width: `${widthProps}%`}}>
         <Table className="customTable"
@@ -20,6 +22,7 @@ function CustomTable({columns, dataSource, heightProps, rowSelection, pagination
             dataSource={dataSource} 
             pagination={pagination} 
             loading={loading}
+            scroll={scroll}
         />
         <div className="pagination-amount-display">
           <div className="pagination-input-amount">

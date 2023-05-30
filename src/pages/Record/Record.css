@@ -174,7 +174,9 @@
 }
 
 .select-wrap .ant-select-arrow {
-    color: var(--orange) !important;
+    top: 50%;
+    right: 10px;
+    color: var(--orange);
 }
 
 .select-wrap .ant-select-arrow .anticon-down svg {

@@ -17,12 +17,12 @@ export interface DataTypePlaylist {
 
 interface IPlaylist {
     playlist: DataTypePlaylist[],
-    tempStoreMusicAddToPlaylist: DataTypeRecord[]
+    tempAddRecordToPlaylist: DataTypeRecord[]
 }
 
 const initialState: IPlaylist = {
     playlist: [],
-    tempStoreMusicAddToPlaylist: []
+    tempAddRecordToPlaylist: []
 } 
 
 export const fetchPlaylist = createAsyncThunk(
@@ -44,10 +44,10 @@ const playlistSlice = createSlice({
     initialState,
     reducers: {
         tempPlaylist: (state, action) => {
-            state.tempStoreMusicAddToPlaylist = action.payload
+            state.tempAddRecordToPlaylist = action.payload
         },
         cancelTempPlaylist: (state) => {
-            state.tempStoreMusicAddToPlaylist = []
+            state.tempAddRecordToPlaylist = []
         }
     },
     extraReducers: (builder) => {

@@ -26,6 +26,9 @@ import RevenueHistory from './pages/Revenue/History/History';
 import Playlist from './pages/Playlist/Playlist';
 import AddPlaylist from './pages/Playlist/AddPlaylist/AddPlaylist';
 import AddRecordIntoPlaylist from './pages/Playlist/AddPlaylist/AddRecordIntoPlaylist';
+import ManageDevice from './pages/Manage/Device/Device';
+import AddDevice from './pages/Manage/Device/AddDevice';
+import DeviceDetail from './pages/Manage/Device/DeviceDetail';
 
 function App() {
   return (
@@ -46,7 +49,11 @@ function App() {
 
             <Route path="playlist" element={<Playlist />} />
             <Route path="playlist/add-playlist" element={<AddPlaylist />} />
-            <Route path="playlist/add-playlist/add-record" element={<AddRecordIntoPlaylist />} />
+            <Route path="playlist/add-playlist/add-record-to-playlist" element={<AddRecordIntoPlaylist />} />
+
+            <Route path="manage-device" element={<ManageDevice />} />
+            <Route path="manage-device/add-device" element={<AddDevice />} />
+            <Route path="manage-device/device-detail" element={<DeviceDetail />} />
 
             <Route path="revenue-report" element={<RevenueReport />} />
             <Route path="revenue-history" element={<RevenueHistory />} />

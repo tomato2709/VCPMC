@@ -1,0 +1,15 @@
+.manage-device .dropdown-search-area {
+    display: flex;
+    justify-content: space-between;
+    width: 93%;
+}
+.manage-device .dropdown-search-area div:first-child {
+    display: flex;
+    align-items: center;
+}
+.manage-device table tbody td {
+    border-bottom: 1px solid #616060;
+}
+.manage-device table tbody td > span {
+    padding: 0 10px 10px 0;
+}

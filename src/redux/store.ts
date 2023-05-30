@@ -7,6 +7,7 @@ import userSlice from "./slice/userSlice";
 import usersSlice from "./slice/listUserSlice";
 import recordSlice from "./slice/recordSlice";
 import playlistSlice from "./slice/playlistSlice";
+import deviceSlice from "./slice/deviceSlice";
 
 const persistConfig = {
     key: 'root',
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
     user: userSlice.reducer,
 	users: usersSlice.reducer,
 	record: recordSlice.reducer,
-	playlist: playlistSlice.reducer
+	playlist: playlistSlice.reducer,
+	device: deviceSlice.reducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer) 

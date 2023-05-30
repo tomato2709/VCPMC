@@ -1,8 +1,8 @@
-import { Breadcrumb } from 'antd';
 import React from 'react'
+import './Breadcrumbs.css'
+import { Breadcrumb } from 'antd';
 import { IoIosArrowForward } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-import './Breadcrumbs.css'
 
 interface IItems {
   key: number
