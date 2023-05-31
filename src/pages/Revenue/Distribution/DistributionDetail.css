@@ -1,0 +1,15 @@
+.distribution-detail {
+    width: 95%;
+    position: fixed;
+    left: 45px;
+}
+.distribution-detail .content {
+    width: 95%;
+    display: flex;
+}
+.distribution-detail .content > div:first-child {
+    width: 58%;
+}
+.distribution-detail .content > div:nth-child(2) {
+    width: 38%;
+}

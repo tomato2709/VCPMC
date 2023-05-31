@@ -36,6 +36,8 @@ import ScheduleDetail from './pages/Schedule/ScheduleDetail';
 import ManageUnit from './pages/Manage/Unit/Unit';
 import ManageContract from './pages/Manage/Contract/Contract';
 import EditContractWarning from './pages/Settings/Contract/EditContractWarning';
+import HistoryDetail from './pages/Revenue/History/HistoryDetail';
+import DistributionDetail from './pages/Revenue/Distribution/DistributionDetail';
 
 function App() {
   return (
@@ -71,7 +73,9 @@ function App() {
 
             <Route path="revenue-report" element={<RevenueReport />} />
             <Route path="revenue-history" element={<RevenueHistory />} />
+            <Route path="revenue-history/detail/id" element={<HistoryDetail />} />
             <Route path="revenue-distribution" element={<RevenueDistribution />} />
+            <Route path="revenue-distribution/detail/id" element={<DistributionDetail />} />
 
             <Route path="user-authorization" element={<UserAuthorization />} />
             <Route path="configuration" element={<Configuration />} />
