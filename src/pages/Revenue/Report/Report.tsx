@@ -4,8 +4,10 @@ import Option from '../../../components/option/Option'
 import { Select } from 'antd'
 import { HiOutlineNewspaper } from 'react-icons/hi'
 import { useAppSelector } from '../../../redux/store'
+import { useNavigate } from 'react-router-dom'
 
 const RevenueReport: React.FC = () => {
+  const navigate = useNavigate()
     const { user } = useAppSelector(state => state.user)
     const breadcrumb = [
         {
@@ -25,7 +27,7 @@ const RevenueReport: React.FC = () => {
             icon: HiOutlineNewspaper,
             text: 'Báo cáo chi tiết',
             event: () => {
-
+              navigate('report-detail')
             },
             unActive: user.isAdmin ? false : true
         }

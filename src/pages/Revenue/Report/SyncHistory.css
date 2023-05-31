@@ -1,0 +1,15 @@
+.sync-history {
+    width: 95%;
+    position: fixed;
+    left: 45px;
+}
+.sync-history .content {
+    width: 95%;
+    display: flex;
+}
+.sync-history .content > div:first-child {
+    width: 58%;
+}
+.sync-history .content > div:nth-child(2) {
+    width: 38%;
+}

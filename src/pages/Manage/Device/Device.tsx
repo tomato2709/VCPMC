@@ -127,7 +127,7 @@ const ManageDevice: React.FC = () => {
       key: 'status',
       render: (_, {status}) => (
         <>{status ? 
-          <p><RxDotFilled color="green" />Đang kích hoạt | Đang hoạt động</p> : 
+          <p><RxDotFilled color="lime" />Đang kích hoạt | Đang hoạt động</p> : 
           <p><RxDotFilled color="red" />Ngừng kích hoạt</p>}</>
       ),
       fixed: 'left'

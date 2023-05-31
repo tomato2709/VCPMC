@@ -38,6 +38,9 @@ import ManageContract from './pages/Manage/Contract/Contract';
 import EditContractWarning from './pages/Settings/Contract/EditContractWarning';
 import HistoryDetail from './pages/Revenue/History/HistoryDetail';
 import DistributionDetail from './pages/Revenue/Distribution/DistributionDetail';
+import ReportDetail from './pages/Revenue/Report/ReportDetail';
+import RevenueReportDetail from './pages/Revenue/Report/RevenueReportDetail';
+import SyncHistory from './pages/Revenue/Report/SyncHistory';
 
 function App() {
   return (
@@ -72,6 +75,9 @@ function App() {
             <Route path="manage-contract" element={<ManageContract />} />
 
             <Route path="revenue-report" element={<RevenueReport />} />
+            <Route path="revenue-report/report-detail" element={<ReportDetail />} />
+            <Route path="revenue-report/report-detail/detail/id" element={<RevenueReportDetail />} />
+            <Route path="revenue-report/report-detail/sync-history/id" element={<SyncHistory />} />
             <Route path="revenue-history" element={<RevenueHistory />} />
             <Route path="revenue-history/detail/id" element={<HistoryDetail />} />
             <Route path="revenue-distribution" element={<RevenueDistribution />} />

@@ -1,0 +1,14 @@
+.report-detail .report-datepicker {
+    display: flex;
+    justify-content: space-between;
+    width: 94%;
+}
+.report-detail .report-datepicker > div:first-child {
+    display: flex;
+    height: 35px;
+}
+.report-detail .report-datepicker > div:first-child h5 {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
