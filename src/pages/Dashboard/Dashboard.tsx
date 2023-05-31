@@ -4,10 +4,12 @@ import Ava from '../../assets/avatar_test.png'
 import Input from "../../components/input/Input";
 import Option from "../../components/option/Option";
 import { Avatar, Button, Modal, DatePicker } from "antd";
+import { CameraOutlined } from "@ant-design/icons";
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 import { SlNote } from 'react-icons/sl'
 import { RxLockClosed } from 'react-icons/rx'
+import { RxDotFilled } from "react-icons/rx";
 import { MdOutlineLogout } from 'react-icons/md'
 import { useAppDispatch, useAppSelector } from '../../redux/store'
 import { getAuth, updatePassword } from 'firebase/auth'
@@ -165,6 +167,9 @@ const Dashboard: React.FC = () => {
                 <div className="avatar">
                     <div>
                         <Avatar src={Ava} style={{ backgroundColor: '#f56a00', fontSize: 35}} size={170}>{user.avatar ?? user?.lastName.charAt(0).toUpperCase()}</Avatar>
+                    </div>
+                    <div className="camera-btn">
+                        <CameraOutlined />
                     </div>
                     <h4>{user.displayName}</h4>
                 </div>

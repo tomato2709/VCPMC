@@ -1,8 +1,33 @@
 import React from "react";
+import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 
 const AddRecordIntoPlaylist: React.FC = () => {
+    const breadcrumbs = [
+        {
+          key: 1,
+          path: '../../playlist',
+          namePage: 'Playlist'
+        },
+        {
+          key: 2,
+          path: '../playlist/add-playlist',
+          namePage: 'Thêm playlist mới'
+        },
+        {
+          key: 3,
+          path: '',
+          namePage: 'Thêm bản ghi vào playlist'
+        },
+    ]
     return (
-        <div>Thêm bản ghi</div>
+        <div>
+            <div>
+                <Breadcrumbs crumbs={breadcrumbs} />
+            </div>
+            <div>
+                <h3>Thêm bản ghi</h3>
+            </div>
+        </div>
     )
 }
 
