@@ -41,6 +41,10 @@ import DistributionDetail from './pages/Revenue/Distribution/DistributionDetail'
 import ReportDetail from './pages/Revenue/Report/ReportDetail';
 import RevenueReportDetail from './pages/Revenue/Report/RevenueReportDetail';
 import SyncHistory from './pages/Revenue/Report/SyncHistory';
+import EditUser from './pages/Settings/UserAuthorization/EditUser';
+import AddUser from './pages/Settings/UserAuthorization/AddUser';
+import AddRole from './pages/Settings/UserAuthorization/AddRole';
+import EditRole from './pages/Settings/UserAuthorization/EditRole';
 
 function App() {
   return (
@@ -84,6 +88,10 @@ function App() {
             <Route path="revenue-distribution/detail/id" element={<DistributionDetail />} />
 
             <Route path="user-authorization" element={<UserAuthorization />} />
+            <Route path="user-authorization/add-user" element={<AddUser />} />
+            <Route path="user-authorization/edit-user/:id" element={<EditUser />} />
+            <Route path="user-authorization/add-role" element={<AddRole />} />
+            <Route path="user-authorization/edit-role/id" element={<EditRole />} />
             <Route path="configuration" element={<Configuration />} />
             <Route path="cycle" element={<Cycle />} />
             <Route path="manager-contract" element={<ManagerContract />} />

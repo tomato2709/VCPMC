@@ -4,6 +4,7 @@ import CustomTable from '../../../components/table/Table'
 import { ColumnsType } from 'antd/es/table'
 import { FiUsers } from "react-icons/fi";
 import { useAppSelector } from '../../../redux/store';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface DataType {
     key: number,
@@ -16,6 +17,7 @@ interface DataType {
 }
 
 const ListRole: React.FC = () => {
+    const navigate = useNavigate();
     const { user } = useAppSelector(state => state.user)
     const columns: ColumnsType<DataType> = [
         {
@@ -48,7 +50,7 @@ const ListRole: React.FC = () => {
             dataIndex: 'update',
             key: 'update',
             render: (_, {}) => {
-                return user.isAdmin ? <a>Chỉnh sửa</a> : ''
+                return user.isAdmin ? <Link to={`edit-role/id`}>Chỉnh sửa</Link> : ''
             }
         },
         {
@@ -121,7 +123,7 @@ const ListRole: React.FC = () => {
             icon: FiUsers,
             text: "Thêm vai trò",
             event: () => {
-
+                navigate('add-role')
             },
             unActive: user.isAdmin ? false : true
         }

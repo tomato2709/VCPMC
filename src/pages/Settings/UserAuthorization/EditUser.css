@@ -1,0 +1,27 @@
+.edit-user-info {
+    position: fixed;
+    left: 45px;
+    width: 100%;
+}
+.edit-user-info .content {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+.edit-user-info .content span {
+    display: flex;
+    margin: 8px 0;
+}
+.edit-user-info .content span h5 {
+    display: flex;
+    align-items: center;
+    min-width: 160px;
+}
+.edit-user-info .content span h5 i {
+    color: #ff4747;
+}
+.edit-user-info .button {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}

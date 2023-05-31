@@ -2,27 +2,16 @@ import React from 'react'
 import Option from '../../../components/option/Option'
 import CustomTable from '../../../components/table/Table'
 import { Switch } from 'antd'
-import Swal from 'sweetalert2'
 import { ColumnsType } from 'antd/es/table'
 import { AiOutlineUserAdd } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { DataTypeUsers } from '../../../redux/slice/listUserSlice'
 import { useAppSelector } from '../../../redux/store'
 
 const ListUser: React.FC = () => {
+    const navigate = useNavigate();
     const { users } = useAppSelector(state => state.users)
     const { user } = useAppSelector(state => state.user)
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'bottom',
-        showConfirmButton: false,
-        timer: 800,
-        heightAuto: false,
-        customClass: 'swal-height',
-        showClass: {
-            popup: 'animate__animated animate__fadeIn'
-        },
-    })
 
     const columns: ColumnsType<DataTypeUsers> = [
         {
@@ -84,7 +73,7 @@ const ListUser: React.FC = () => {
             icon: AiOutlineUserAdd,
             text: "Thêm người dùng",
             event: () => {
-
+                navigate('add-user');
             },
             unActive: user.isAdmin ? false : true
         }

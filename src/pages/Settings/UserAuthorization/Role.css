@@ -1,0 +1,27 @@
+.role-info {
+    position: fixed;
+    left: 45px;
+    width: 100%;
+}
+.role-info .content {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+.role-info .content span {
+    display: flex;
+    margin: 8px 0;
+}
+.role-info .content span h5 {
+    display: flex;
+    align-items: center;
+    min-width: 160px;
+}
+.role-info .content span h5 i {
+    color: #ff4747;
+}
+.role-info .button {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
