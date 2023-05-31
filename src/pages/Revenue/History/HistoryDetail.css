@@ -1,0 +1,49 @@
+.history-detail {
+    position: fixed;
+    left: 45px;
+    width: 95%;
+}
+.history-detail .content {
+    display: flex;
+}
+.history-detail .content > div:first-child {
+    width: 32%;
+}
+.history-detail .content > div:first-child div {
+    width: 400px;
+    border-radius: 8px;
+    background-color: var(--violetLight);
+    margin: 0 15px 15px 0;
+    padding: 15px;
+}
+.history-detail .content > div:first-child div h4 {
+    color: var(--orange);
+}
+.history-detail .content > div:first-child div span {
+    display: flex;
+    margin: 5px 0;
+}
+.history-detail .content > div:first-child div span h5 {
+    min-width: 210px;
+}
+.history-detail .content > div:first-child div span p {
+    display: flex;
+    align-items: center;
+}
+.history-detail .content > div:nth-child(2) {
+    width: 61%;
+}
+.history-detail .content > div:nth-child(2) .dateAndSearch {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.history-detail .content > div:nth-child(2) .dateAndSearch div {
+    display: flex;
+}
+.history-detail .content > div:nth-child(2) .dateAndSearch div h5 {
+    height: 40px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}

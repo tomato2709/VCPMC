@@ -4,7 +4,8 @@ import './History.css'
 import InputSearch from '../../../components/input/search/Search';
 import Option from '../../../components/option/Option';
 import CustomTable from '../../../components/table/Table';
-import { message, DatePicker } from 'antd';
+import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs';
+import { DatePicker } from 'antd';
 import { RangePickerProps } from 'antd/es/date-picker';
 import { ColumnsType } from 'antd/es/table';
 import { MdOutlineLogout } from 'react-icons/md';
@@ -32,13 +33,26 @@ const RevenueHistory: React.FC = () => {
     return current && current < dayjs().endOf('day');
   };
 
+  const breadcrumbs = [
+    {
+        key: 1,
+        path: '',
+        namePage: 'Doanh thu'
+    },
+    {
+        key: 2,
+        path: '',
+        namePage: 'Lịch sử đối soát'
+    }
+  ]
+
   const dataSource: RevenueHistoryDataType[] = [
     {
       key: 1,
       stt: 1,
       contractID: 'HĐ123',
       company: 'Cty TNHH TM DV ABCEDEF',
-      expiryDate: '10/07/2020 - 10/07/2021 ',
+      expiryDate: '10/07/2020 - 10/07/2021',
       contractType: 'Trọn gói',
       playCount: 365,
       totalRevenue: 365000000,
@@ -51,11 +65,11 @@ const RevenueHistory: React.FC = () => {
       stt: 2,
       contractID: 'HĐ123',
       company: 'Cty TNHH TM DV ABCEDEF',
-      expiryDate: '10/07/2020 - 10/07/2021 ',
-      contractType: 'Trọn gói',
-      playCount: 365,
-      totalRevenue: 365000000,
-      undistributedRevenue: 0,
+      expiryDate: '10/07/2020 - 10/07/2021',
+      contractType: 'Theo lịch phát',
+      playCount: 250,
+      totalRevenue: 2500000,
+      undistributedRevenue: "-",
       closingDate: '10/07/2021', 
       detail: 'Xem chi tiết'
     },
@@ -66,9 +80,9 @@ const RevenueHistory: React.FC = () => {
       company: 'Cty TNHH TM DV ABCEDEF',
       expiryDate: '10/07/2020 - 10/07/2021 ',
       contractType: 'Trọn gói',
-      playCount: 365,
-      totalRevenue: 365000000,
-      undistributedRevenue: 1000000,
+      playCount: 425,
+      totalRevenue: 425000000,
+      undistributedRevenue: 0,
       closingDate: '10/07/2021', 
       detail: 'Xem chi tiết'
     },
@@ -78,9 +92,9 @@ const RevenueHistory: React.FC = () => {
       contractID: 'HĐ123',
       company: 'Cty TNHH TM DV ABCEDEF',
       expiryDate: '10/07/2020 - 10/07/2021 ',
-      contractType: 'Trọn gói',
-      playCount: 365,
-      totalRevenue: 365000000,
+      contractType: 'Theo lịch phát',
+      playCount: 400,
+      totalRevenue: 400000000,
       undistributedRevenue: '-',
       closingDate: '10/07/2021', 
       detail: 'Xem chi tiết'
@@ -92,9 +106,9 @@ const RevenueHistory: React.FC = () => {
       company: 'Cty TNHH TM DV ABCEDEF',
       expiryDate: '10/07/2020 - 10/07/2021 ',
       contractType: 'Trọn gói',
-      playCount: 365,
-      totalRevenue: 365000000,
-      undistributedRevenue: 1000000,
+      playCount: 280,
+      totalRevenue: 280000000,
+      undistributedRevenue: 5000000,
       closingDate: '10/07/2021', 
       detail: 'Xem chi tiết'
     },
@@ -105,8 +119,8 @@ const RevenueHistory: React.FC = () => {
       company: 'Cty TNHH TM DV ABCEDEF',
       expiryDate: '10/07/2020 - 10/07/2021 ',
       contractType: 'Trọn gói',
-      playCount: 365,
-      totalRevenue: 365000000,
+      playCount: 250,
+      totalRevenue: 250000000,
       undistributedRevenue: 0,
       closingDate: '10/07/2021', 
       detail: 'Xem chi tiết'
@@ -181,11 +195,12 @@ const RevenueHistory: React.FC = () => {
 
   return (
     <div className="revenue-history">
+      <Breadcrumbs crumbs={breadcrumbs} />
         <h3>Lịch sử đối soát doanh thu</h3>
         <div className="timeAndSearch">
             <div>
               <h5>Thời gian thực hiện: </h5>
-              <DatePicker className="datepicker" disabledDate={disabledDateProps} />
+              <DatePicker picker="month" className="datepicker" disabledDate={disabledDateProps} />
             </div>
             <div>
               <InputSearch placeholder='Nhập tên tài khoản quản trị' />
