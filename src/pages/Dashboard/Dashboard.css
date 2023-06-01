@@ -12,7 +12,7 @@
 .dashboard .info .avatar .camera-btn {
     position: absolute;
     left: 150px;
-    bottom: 300px;
+    top: 190px;
     width: 13px;
     height: 13px;
     font-size: 36px;
