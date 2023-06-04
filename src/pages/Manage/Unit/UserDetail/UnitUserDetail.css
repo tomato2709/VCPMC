@@ -1,0 +1,26 @@
+.unit-user-detail {
+    position: fixed;
+    left: 45px;
+    width: 100%;
+}
+.unit-user-detail .content {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+.unit-user-detail .content span {
+    display: flex;
+    margin: 15px 0;
+}
+.unit-user-detail .content span h5 {
+    min-width: 150px;
+}
+.unit-user-detail .content span p {
+    display: flex;
+    align-items: center;
+}
+.unit-user-detail .button {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}

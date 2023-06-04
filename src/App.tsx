@@ -45,6 +45,9 @@ import EditUser from './pages/Settings/UserAuthorization/EditUser';
 import AddUser from './pages/Settings/UserAuthorization/AddUser';
 import AddRole from './pages/Settings/UserAuthorization/AddRole';
 import EditRole from './pages/Settings/UserAuthorization/EditRole';
+import UnitDetail from './pages/Manage/Unit/UnitDetail';
+import UnitUserDetail from './pages/Manage/Unit/UserDetail/UnitUserDetail';
+import EditUnitUserDetail from './pages/Manage/Unit/UserDetail/EditUnitUserDetail';
 
 function App() {
   return (
@@ -76,6 +79,9 @@ function App() {
             <Route path="manage-authorized-partner" element={<ManageAuthorizedPartner />} />
             <Route path="manage-authorized-partner/detail/:id" element={<EditAuthorizedPartner />} />
             <Route path="manage-unit" element={<ManageUnit />} />
+            <Route path="manage-unit/detail/id" element={<UnitDetail />} />
+            <Route path="manage-unit/detail/id/user-detail/id" element={<UnitUserDetail />} />
+            <Route path="manage-unit/detail/id/user-detail/id/edit-unit-user" element={<EditUnitUserDetail />} />
             <Route path="manage-contract" element={<ManageContract />} />
 
             <Route path="revenue-report" element={<RevenueReport />} />
