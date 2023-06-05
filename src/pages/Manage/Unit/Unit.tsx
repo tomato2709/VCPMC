@@ -145,7 +145,7 @@ const ManageUnit: React.FC = () => {
         },
         {
             render: (_, {id}) => (
-                <Link to={`detail/${id}`}>Xem chi tiết</Link> 
+                <Link to={`detail/id`}>Xem chi tiết</Link> 
             )
         },
     ]

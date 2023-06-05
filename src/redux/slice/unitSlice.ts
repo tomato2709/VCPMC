@@ -22,9 +22,8 @@ export interface DataTypeUser {
     password: string,
     role: string,
     status: boolean,
-    update: string,
+    lastUpdated: string,
 }
-
 
 interface IUnit {
     unit: DataTypeUnit[],

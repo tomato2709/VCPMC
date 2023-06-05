@@ -62,7 +62,7 @@ function Grid({ record, selectedRow = false }: RecordProps) {
                     </span>
                     <span>
                         <h5>Số hợp đồng:</h5>
-                        <p>{record.ISRCID}</p>
+                        <p>HD395738503</p>
                     </span>
                 </div>
                 <div className="type">
