@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CustomTable from "../../components/table/Table";
 import Option from "../../components/option/Option";
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
@@ -18,6 +18,11 @@ interface DataType {
 
 const ScheduleDetail: React.FC = () => {
     const { user } = useAppSelector(state => state.user)
+    const [ title ] = useState("VCPMC | Chi tiết lịch phát");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const breadcrumbs = [
         {

@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import '../Login/login.css';
 import logo from '../../assets/logo.png';
 import vi_flag from '../../assets/vi_flag.png';
 import { Link } from "react-router-dom";
+import { DownOutlined } from "@ant-design/icons";
 
 const SuccessFpw: React.FC = () => {
+    const [ title ] = useState("VCPMC | Khôi phục mật khẩu");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+    
     return (
         <div className="login">
             <div className="selectLanguage">
-                Tiếng Việt<img className="flag" src={vi_flag}></img>
+                Tiếng Việt<img className="flag" src={vi_flag}></img><DownOutlined />
             </div>
             <div className="resetPassword">
                 <div>

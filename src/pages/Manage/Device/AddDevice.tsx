@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './AddDevice.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 import Input from '../../../components/input/Input'
@@ -49,6 +49,11 @@ const AddDevice: React.FC = () => {
             popup: 'animate__animated animate__fadeIn'
         },
       })
+      const [ title ] = useState("VCPMC | Thêm thiết bị");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const breadcrumb = [
         {

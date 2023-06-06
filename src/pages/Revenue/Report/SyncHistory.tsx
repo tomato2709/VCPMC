@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './SyncHistory.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 import Option from '../../../components/option/Option'
@@ -22,6 +22,11 @@ interface DataTypeRecord {
 
 const SyncHistory: React.FC = () => {
     const { user } = useAppSelector(state => state.user)
+    const [ title ] = useState("VCPMC | Lịch sử đồng bộ trên thiết bị");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const columnsRecord: ColumnsType<DataTypeRecord> = [
         {

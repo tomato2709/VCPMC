@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './ReportDetail.css'
 import CustomTable from '../../../components/table/Table';
 import Option from '../../../components/option/Option';
@@ -29,6 +29,11 @@ const ReportDetail: React.FC = () => {
     const navigate = useNavigate()
     const { user } = useAppSelector(state => state.user)
     const [ openModal, setOpenModal ] = useState(false)
+    const [ title ] = useState("VCPMC | Chi tiết báo cáo doanh thu");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const dataSource: ReportType[] = [
     {

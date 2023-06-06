@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Role.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 import Input from '../../../components/input/Input'
@@ -8,6 +8,11 @@ import { useNavigate } from 'react-router-dom'
 
 const EditRole: React.FC = () => {
     const navigate = useNavigate();
+    const [ title ] = useState("VCPMC | Cập nhật vai trò người dùng");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const Toast = Swal.mixin({
         toast: true,

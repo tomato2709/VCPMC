@@ -16,6 +16,11 @@ const ManageAuthorizedPartner: React.FC = () => {
   const [ authorizedPartner, setAuthorizedPartner ] = useState<DataTypeAuthorizedPartner[]>(authorizedPartnerList);
   const { snapshot } = useSnapshot('authorized-partner');
   const [ search, setSearch ] = useSearch(snapshot, 'fullName');
+  const [ title ] = useState("VCPMC | Quản lý đối tác ủy quyền");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
   useEffect(() => {
     setAuthorizedPartner(search)

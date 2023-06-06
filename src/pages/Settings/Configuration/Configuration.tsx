@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Configuration.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs';
 import CustomSelect from '../../../components/select/Select';
@@ -21,7 +21,13 @@ const Configuration: React.FC = () => {
     showClass: {
         popup: 'animate__animated animate__fadeIn'
     },
-})
+  })
+  const [ title ] = useState("VCPMC | Cấu hình");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+    
   const breadcrumb = [
     {
       key: 1,

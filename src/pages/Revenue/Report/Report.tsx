@@ -5,10 +5,17 @@ import { Select } from 'antd'
 import { HiOutlineNewspaper } from 'react-icons/hi'
 import { useAppSelector } from '../../../redux/store'
 import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 const RevenueReport: React.FC = () => {
-  const navigate = useNavigate()
+    const navigate = useNavigate()
     const { user } = useAppSelector(state => state.user)
+    const [ title ] = useState("VCPMC | Báo cáo doanh thu");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+    
     const breadcrumb = [
         {
             key: 1 ,

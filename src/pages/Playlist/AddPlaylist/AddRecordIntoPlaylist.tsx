@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 
 const AddRecordIntoPlaylist: React.FC = () => {
+    const [ title ] = useState("VCPMC | Thêm Playlist");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+    
     const breadcrumbs = [
         {
           key: 1,

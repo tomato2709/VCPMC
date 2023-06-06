@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 import Option from '../../../components/option/Option'
 import { MdAdd } from 'react-icons/md'
@@ -6,6 +6,12 @@ import { useNavigate } from 'react-router-dom'
 
 const AddPlaylist: React.FC = () => {
     const navigate = useNavigate()
+    const [ title ] = useState("VCPMC | Thêm Playlist");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+
     const optionProps = [
         {
             icon: MdAdd,

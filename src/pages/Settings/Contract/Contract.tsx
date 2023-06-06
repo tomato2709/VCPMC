@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './Contract.css'
 import Option from '../../../components/option/Option'
 import CustomTable from '../../../components/table/Table'
@@ -19,6 +19,12 @@ interface DataType {
 const ManagerContract: React.FC = () => {
   const navigate = useNavigate()
   const { user } = useAppSelector(state => state.user)
+  const [ title ] = useState("VCPMC | Quản lý loại hợp đồng");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+    
   const dataSource: DataType[] = [
     {
       key: 1,

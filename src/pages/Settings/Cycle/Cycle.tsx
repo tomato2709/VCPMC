@@ -1,11 +1,16 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './Cycle.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 import { Radio, DatePicker, Button } from 'antd'
 import Swal from 'sweetalert2'
 
 const Cycle: React.FC = () => {
-    const [value, setValue] = useState("quarter");
+    const [ value, setValue ] = useState("quarter");
+    const [ title ] = useState("VCPMC | Chu kỳ đối soát");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const Toast = Swal.mixin({
       toast: true,

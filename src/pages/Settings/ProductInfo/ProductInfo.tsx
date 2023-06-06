@@ -41,6 +41,11 @@ const ProductInfo: React.FC = () => {
         },
     })
     const { snapshot } = useSnapshot('genres');
+    const [ title ] = useState("VCPMC | Thông tin tác phẩm");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
   
     useEffect(() => {
         setGenre(snapshot)

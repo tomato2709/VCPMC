@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './RevenueReportDetail.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 import Option from '../../../components/option/Option'
@@ -20,6 +20,12 @@ interface DataType {
 
 const RevenueReportDetail: React.FC = () => {
     const { user } = useAppSelector(state => state.user)
+    const [ title ] = useState("VCPMC | Chi tiết doanh thu");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+    
     const columns: ColumnsType<DataType> = [
         {
             title: 'STT',

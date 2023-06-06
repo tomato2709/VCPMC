@@ -20,6 +20,7 @@ import { DataTypeRecord, fetchRecord } from '../../redux/slice/recordSlice';
 import YouTube, { YouTubeProps } from 'react-youtube';
 
 const Record: React.FC = () => {
+    const [ title ] = useState("VCPMC | Kho bản ghi");
     const [ viewStyle, setViewStyle ] = useState('table')
     const [ selectedRow, setDisplayRowSelection ] = useState(false)
     const [ openModal, setOpenModal ] = useState(false)
@@ -53,6 +54,11 @@ const Record: React.FC = () => {
     useEffect(() => {
       setRecord(snapshot)
     }, [snapshot])
+
+    
+    useEffect(() => {
+      document.title = title;
+    }, [title]);
 
     const onPlayerReady: YouTubeProps['onReady'] = (event) => {
       // access to player in all event handlers via event.target

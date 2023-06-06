@@ -8,6 +8,11 @@ import { useNavigate } from 'react-router-dom'
 
 const AddUser: React.FC = () => {
     const navigate = useNavigate();
+    const [ title ] = useState("VCPMC | Thêm người dùng");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const Toast = Swal.mixin({
         toast: true,

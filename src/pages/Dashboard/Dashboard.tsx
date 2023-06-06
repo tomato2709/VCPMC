@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './Dashboard.css'
 import Ava from '../../assets/avatar_test.png'
 import Input from "../../components/input/Input";
@@ -18,6 +18,7 @@ import { updateDocumentConfig } from '../../hooks/updateDocument'
 import { logOut } from '../../config/userAuthentication'
 
 const Dashboard: React.FC = () => {
+    const [ title ] = useState("VCPMC | Thông tin cơ bản");
     const dispatch = useAppDispatch();
     const navigate = useNavigate()
     const auth = getAuth();
@@ -36,6 +37,11 @@ const Dashboard: React.FC = () => {
             popup: 'animate__animated animate__fadeIn'
         },
     })
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+
     const [ updatePass, setUpdatePass ] = useState({
         newPassword: '',
         confirmPassword: '',

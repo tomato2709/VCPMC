@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './DeviceDetail.css'
 import DeviceImage from '../../../assets/device.png';
 import Breadcrumbs from "../../../components/breadcrumbs/Breadcrumbs";
@@ -13,6 +13,12 @@ import { RxDotFilled } from "react-icons/rx";
 const DeviceDetail: React.FC = () => {
     const [ value, setValue ] = useState("activated");
     const [ openModal, setOpenModal ] = useState(false)
+    const [ title ] = useState("VCPMC | Chi tiết thiết bị");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+    
     const breadcrumb = [
         {
           key: 1,

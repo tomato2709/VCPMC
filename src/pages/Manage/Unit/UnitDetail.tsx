@@ -29,6 +29,12 @@ const UnitDetail: React.FC = () => {
         },
     })
 
+    const [ title ] = useState("VCPMC | Chi tiết đơn vị sử dụng");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+
     const dataSource: DataTypeUser[] = [
     {
         key: 1,

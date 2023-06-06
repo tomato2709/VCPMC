@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs';
 import CustomTab from '../../../components/tab/Tab';
 import { fetchUsers } from '../../../redux/slice/listUserSlice';
@@ -8,6 +8,11 @@ import ListRole from './ListRole';
 
 const UserAuthorization: React.FC = () => {
     const dispatch = useAppDispatch();
+    const [ title ] = useState("VCPMC | Phân quyền người dùng");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     useEffect(() => {
     dispatch(fetchUsers())

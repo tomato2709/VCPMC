@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Tab from '../../../components/tab/Tab'
 import AuthorizedContract from './AuthorizedContract'
 import MiningContract from './MiningContract'
 
 const ManageContract: React.FC = () => {
+    const [ title ] = useState("VCPMC | Quản lý hợp đồng");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+    
     const tabItems = {
         buttons: [
           {

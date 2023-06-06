@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './DistributionDetail.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 import Option from '../../../components/option/Option'
@@ -23,6 +23,12 @@ interface DataTypeRevenue {
 
 const DistributionDetail: React.FC = () => {
     const { user } = useAppSelector(state => state.user)
+
+    const [ title ] = useState("VCPMC | Chi tiết phân phối doanh thu");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const columnsRevenue: ColumnsType<DataTypeRevenue> = [
         {

@@ -35,6 +35,11 @@ const ManageUnit: React.FC = () => {
             popup: 'animate__animated animate__fadeIn'
         },
     })
+    const [ title ] = useState("VCPMC | Quản lý đơn vị sử dụng");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     useEffect(() => {
         setListUnit(search)
