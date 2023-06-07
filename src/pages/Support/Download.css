@@ -37,6 +37,5 @@
 .download-bg {
     position: absolute;
     top: -82px;
-    left: -85px;
-    z-index: 1000;
+    z-index: 1;
   }

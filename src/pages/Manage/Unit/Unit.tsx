@@ -58,22 +58,10 @@ const ManageUnit: React.FC = () => {
 
     const handleRemoveDevice = () => {
         if(removeUnit.length) {
-
-            confirm({
-                title: 'Xóa thiết bị',
-                icon: <ExclamationCircleOutlined />,
-                content: <p>Bạn có chắc chắn muốn xoá các thiết bị này? Hành động này không thể hoàn tác.</p>,
-                onOk() {
-                    removeUnit.forEach(async (item)   => {
-                        const docRef = doc(db, 'unit-used', `${item.id}`)
-                        await deleteDoc(docRef)
-                    })
-                },
-                onCancel() {
-                  console.log('Cancel');
-                },
-              });
-
+            removeUnit.forEach(async (item)   => {
+                const docRef = doc(db, 'unit', `${item.id}`)
+                await deleteDoc(docRef)
+            })
          return
         }
         Toast.fire({

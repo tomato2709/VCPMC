@@ -145,7 +145,7 @@ const UnitDetail: React.FC = () => {
         icon: HiPlus,
         text: 'Thêm người dùng',
         event: () => {
-            navigate("add-user")
+            navigate("add-unit-user")
         },
         unActive: user.isAdmin ? false : true
     },
