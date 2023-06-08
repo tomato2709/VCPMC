@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import '../Login/login.css';
 import { Button, Input } from "antd";
 import logo from '../../assets/logo.png';
 import vi_flag from '../../assets/vi_flag.png';
 import { Link } from "react-router-dom";
+import { DownOutlined } from "@ant-design/icons";
 
 const QuenMatKhau: React.FC = () => {
+    const [ title ] = useState("VCPMC | Quên mật khẩu");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+
     return (
         <div className="login">
             <div className="selectLanguage">
-                Tiếng Việt<img className="flag" src={vi_flag}></img>
+                Tiếng Việt<img className="flag" src={vi_flag}></img><DownOutlined />
             </div>
             <div className="resetPassword">
                 <div>
@@ -25,12 +32,12 @@ const QuenMatKhau: React.FC = () => {
                             </div>
                         </form>
                         <div className="formBtn">
-                            <Button style={{ border: '1px solid #FF7506', fontSize: '16px', color: '#fff', marginTop: '15px' }} className="btn">
-                            <b>Xác nhận</b>
-                            </Button>
+                            <Link to="./success">
+                                <Button style={{ border: '1px solid #FF7506', fontSize: '16px', color: '#fff', marginTop: '15px' }} className="btn"><b>Xác nhận</b></Button>
+                            </Link>
                         </div>
                         <div className="backToLogin">
-                            <Link to="/"><h5>Quay lại đăng nhập</h5></Link>
+                            <Link to="../login"><h5>Quay lại đăng nhập</h5></Link>
                         </div>
                 </div>
             </div>

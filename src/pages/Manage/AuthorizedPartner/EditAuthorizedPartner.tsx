@@ -27,6 +27,12 @@ const EditAuthorizedPartner: React.FC = () => {
         },
       })
 
+      const [ title ] = useState("VCPMC | Cập nhật đối tác ủy quyền");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+
     useEffect(() => {
         const getData = async () => {
             const docRef = doc(db, "authorized-partner", `${id}`);

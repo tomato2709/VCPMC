@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs';
 import './Distribution.css'
 import CustomTable from '../../../components/table/Table';
@@ -31,6 +31,12 @@ const RevenueDistribution: React.FC = () => {
     const disabledDateProps: RangePickerProps['disabledDate'] = (current) => {
         return current && current < dayjs().endOf('day');
     };
+
+    const [ title ] = useState("VCPMC | Phân phối doanh thu");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const dataSource: DistributionType[] = [
     {

@@ -12,6 +12,7 @@ import { fetchUser } from '../../redux/slice/userSlice'
 import { logIn } from '../../config/userAuthentication'
 
 const DangNhap: React.FC = () => {
+    const [ title ] = useState("VCPMC | Đăng nhập");
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
@@ -36,6 +37,10 @@ const DangNhap: React.FC = () => {
         navigate('/')
       }
     }, [navigate])
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
   
     const handleLogin = async (e: any) => {
       e.preventDefault();

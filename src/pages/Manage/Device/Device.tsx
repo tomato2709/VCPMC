@@ -39,6 +39,11 @@ const ManageDevice: React.FC = () => {
         popup: 'animate__animated animate__fadeIn'
     },
   })
+  const [ title ] = useState("VCPMC | Quản lý thiết bị");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
   useEffect(() => {
     setListDevice(search)

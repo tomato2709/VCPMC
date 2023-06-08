@@ -5,7 +5,7 @@ export const DownloadBackground = () => {
     <svg
       width="1028"
       height="520"
-      viewBox="0 0 1143 628"
+      viewBox="150 0 1143 628"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

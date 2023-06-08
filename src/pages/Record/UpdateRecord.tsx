@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Record.css'
 import RecordImage from '../../assets/record2.png'
 import Option from '../../components/option/Option'
@@ -15,6 +15,7 @@ import { useAppSelector } from '../../redux/store'
 import { updateDocumentConfig } from '../../hooks/updateDocument'
 
 const UpdateRecord: React.FC = () => {
+    const [ title ] = useState("VCPMC | Cập nhật thông tin bản ghi");
     const { id } = useParams();
     const storeRecords = useAppSelector(state => state.record.record); 
 
@@ -47,6 +48,10 @@ const UpdateRecord: React.FC = () => {
         format: record[0].format,
         status: record[0].status,
     })
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const breadcrumb = [
         {

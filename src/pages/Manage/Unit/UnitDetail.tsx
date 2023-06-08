@@ -29,6 +29,12 @@ const UnitDetail: React.FC = () => {
         },
     })
 
+    const [ title ] = useState("VCPMC | Chi tiết đơn vị sử dụng");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+
     const dataSource: DataTypeUser[] = [
     {
         key: 1,
@@ -139,7 +145,7 @@ const UnitDetail: React.FC = () => {
         icon: HiPlus,
         text: 'Thêm người dùng',
         event: () => {
-            navigate("add-user")
+            navigate("add-unit-user")
         },
         unActive: user.isAdmin ? false : true
     },

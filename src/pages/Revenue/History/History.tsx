@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs';
 import './History.css'
 import InputSearch from '../../../components/input/search/Search';
@@ -32,6 +32,12 @@ const RevenueHistory: React.FC = () => {
   const disabledDateProps: RangePickerProps['disabledDate'] = (current) => {
     return current && current < dayjs().endOf('day');
   };
+
+  const [ title ] = useState("VCPMC | Lịch sử đối sooát");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
   const breadcrumbs = [
     {

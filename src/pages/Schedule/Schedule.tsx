@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CustomTable from "../../components/table/Table";
 import Option from "../../components/option/Option";
 import { ColumnsType } from 'antd/es/table';
@@ -17,6 +17,11 @@ interface DataType {
 
 const Schedule: React.FC = () => {
     const { user } = useAppSelector(state => state.user)
+    const [ title ] = useState("VCPMC | Lịch phát");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const dataSource: DataType[] = [
         {

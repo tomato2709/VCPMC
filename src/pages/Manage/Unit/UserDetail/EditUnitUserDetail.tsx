@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './EditUnitUserDetail.css'
 import Swal from 'sweetalert2';
 import Breadcrumbs from '../../../../components/breadcrumbs/Breadcrumbs';
@@ -19,6 +19,11 @@ const EditUnitUserDetail: React.FC = () => {
             popup: 'animate__animated animate__fadeIn'
         },
       })
+    const [ title ] = useState("VCPMC | Chỉnh sửa thông tin người dùng");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const handleUpdateUnitUser = (e: any) => {
         Toast.fire({

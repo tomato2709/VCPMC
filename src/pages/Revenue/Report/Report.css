@@ -34,6 +34,6 @@
 .revenue-report .content .total > div:last-child {
     border: none;
 }
-.revenue-report .content .chart img {
+.revenue-report .content .chart .line-chart {
     width: 100%;
 }

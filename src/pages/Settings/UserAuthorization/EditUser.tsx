@@ -29,6 +29,12 @@ const EditUser: React.FC = () => {
         },
       })
 
+    const [ title ] = useState("VCPMC | Chỉnh sửa thông tin người dùng");
+
+      useEffect(() => {
+          document.title = title;
+      }, [title]);
+
     useEffect(() => {
         const getData = async () => {
             const docRef = doc(db, "user", `${id}`);

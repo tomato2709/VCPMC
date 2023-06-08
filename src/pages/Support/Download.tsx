@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Download.css'
 import upload from '../../assets/upload.png'
 import windows from '../../assets/window.png'
@@ -8,6 +8,11 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import { Button } from 'antd';
 
 const Download: React.FC = () => {
+    const [ title ] = useState("VCPMC | Tải App");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const breadcrumb = [
         {

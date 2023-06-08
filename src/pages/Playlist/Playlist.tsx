@@ -23,6 +23,11 @@ const Playlist: React.FC = () => {
   const [ search, setSearch ] = useSearch(playlist, 'title');
   const [ viewStyle, setViewStyle ] = useState('table')
   const [ selectedRow, setDisplayRowSelection ] = useState(false)
+  const [ title ] = useState("VCPMC | Playlist");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
   useEffect(() => {
     setPlaylistStore(search)

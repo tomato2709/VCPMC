@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import './Manual.css'
 import TabColumn from '../../components/tabcolumn/TabColumn';
@@ -10,7 +10,11 @@ interface ManualDataProps {
 }
 
 const Manual: React.FC = () => {
+    const [ title ] = useState("VCPMC | Hướng dẫn sử dụng");
 
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
     
     const breadcrumb = [
         {

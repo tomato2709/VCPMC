@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './HistoryDetail.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 import Option from '../../../components/option/Option'
@@ -20,6 +20,11 @@ interface DataType {
 
 const HistoryDetail: React.FC = () => {
     const { user } = useAppSelector(state => state.user)
+    const [ title ] = useState("VCPMC | Chi tiết lịch sử đối soát");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
     const columns: ColumnsType<DataType> = [
         {
             title: 'STT',

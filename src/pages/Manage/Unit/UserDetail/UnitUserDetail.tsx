@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './UnitUserDetail.css'
 import Breadcrumbs from '../../../../components/breadcrumbs/Breadcrumbs';
 import Option from '../../../../components/option/Option';
@@ -9,6 +9,11 @@ import { useAppSelector } from '../../../../redux/store';
 const UnitUserDetail: React.FC = () => {
     const navigate = useNavigate();
     const { user } = useAppSelector(state => state.user)
+    const [ title ] = useState("VCPMC | Thông tin người dùng");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     const optionProps = [
         {

@@ -49,6 +49,11 @@ const Feedback: React.FC = () => {
         },
     })
     const { snapshot } = useSnapshot('feedback');
+    const [ title ] = useState("VCPMC | Feedback");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     useEffect(() => {
         setListMessageFeedback(snapshot)

@@ -48,6 +48,7 @@ import EditRole from './pages/Settings/UserAuthorization/EditRole';
 import UnitDetail from './pages/Manage/Unit/UnitDetail';
 import UnitUserDetail from './pages/Manage/Unit/UserDetail/UnitUserDetail';
 import EditUnitUserDetail from './pages/Manage/Unit/UserDetail/EditUnitUserDetail';
+import AddUnitUser from './pages/Manage/Unit/UserDetail/AddUnitUser';
 
 function App() {
   return (
@@ -82,6 +83,7 @@ function App() {
             <Route path="manage-unit/detail/id" element={<UnitDetail />} />
             <Route path="manage-unit/detail/id/user-detail/id" element={<UnitUserDetail />} />
             <Route path="manage-unit/detail/id/user-detail/id/edit-unit-user" element={<EditUnitUserDetail />} />
+            <Route path="manage-unit/detail/id/add-unit-user" element={<AddUnitUser />} />
             <Route path="manage-contract" element={<ManageContract />} />
 
             <Route path="revenue-report" element={<RevenueReport />} />

@@ -1,14 +1,57 @@
+import { useEffect, useState } from 'react'
 import './Report.css'
 import Breadcrumbs from '../../../components/breadcrumbs/Breadcrumbs'
 import Option from '../../../components/option/Option'
 import { Select } from 'antd'
+import { Line } from '@ant-design/plots';
 import { HiOutlineNewspaper } from 'react-icons/hi'
 import { useAppSelector } from '../../../redux/store'
 import { useNavigate } from 'react-router-dom'
 
+const DemoLine = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    asyncFetch();
+  }, []);
+
+  const asyncFetch = () => {
+    fetch('https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json')
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => {
+        console.log('fetch data failed', error);
+      });
+  };
+  const config = {
+    data,
+    xField: 'Date',
+    yField: 'scales',
+    xAxis: {
+      // type: 'timeCat',
+      tickCount: 5,
+    },
+    smooth: true,
+    style: {
+      height: '250px',
+      background: 'rgb(47,47,65, 0.7)',
+      borderRadius: '20px',
+      padding: '20px'
+    }
+  };
+
+  return <Line {...config} />;
+};
+
 const RevenueReport: React.FC = () => {
-  const navigate = useNavigate()
+    const navigate = useNavigate()
     const { user } = useAppSelector(state => state.user)
+    const [ title ] = useState("VCPMC | Báo cáo doanh thu");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
+    
     const breadcrumb = [
         {
             key: 1 ,
@@ -139,6 +182,7 @@ const RevenueReport: React.FC = () => {
             </div>
             <div className='chart'>
                 <h4>Biểu đồ theo dõi lượt phát - 29/06/2021</h4>
+                <div className="line-chart"><DemoLine /></div>
             </div>
         </div>
         <Option optionProps={optionProps} />
